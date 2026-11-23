@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asset Living OS - Close Assistant</title>
+  <meta name="description" content="Asset Living OS concept: one platform, many modules. The Close Assistant module covers AP review, variance commentary and evidence-based close status.">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Theme: light unless dark was picked in this browser. The device setting is ignored. Set before first paint so the page never flashes. -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("asset-os:theme"); } catch (e) { /* not available */ }
+      var dark = saved === "dark";
+      document.documentElement.classList.toggle("dark", dark);
+      document.querySelector('meta[name="theme-color"]').content = dark ? "#131e2d" : "#ffffff";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-al-cream text-al-navy font-sans antialiased min-h-screen">
+  <div class="lg:flex min-h-screen">
+
+    <!-- Platform sidebar: the OS, its modules, the data source and the signed-in reviewer -->
+    <aside id="sidebar" class="hidden lg:flex flex-col w-72 max-w-[85vw] shrink-0 bg-al-navy text-white lg:sticky lg:top-0 lg:h-screen z-30">
+      <div class="flex items-center h-16 shrink-0 border-b border-white/10">
+      <a href="#/home" class="flex-1 flex items-center gap-3 px-5 h-full">
+        <img src="img/asset-logo-light.svg" alt="Asset Living" width="124" height="26" style="height:26px;width:auto">
+        <span aria-hidden="true" style="width:1px;height:24px;background:rgba(255,255,255,.3)"></span>
+        <span style="font-size:19px;font-weight:600;letter-spacing:.3em;line-height:1;color:#F0EDE7">OS</span>
+      </a>
+        <button id="menu-close" type="button" class="lg:hidden p-2 mr-3 rounded-md text-white/70 hover:bg-white/10 hover:text-white" aria-label="Close the menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <nav id="nav" class="flex-1 overflow-y-auto px-3 py-4 text-sm" aria-label="Platform"></nav>
+      <div class="px-3 py-3 border-t border-white/10">
+        <button id="user-btn" type="button" aria-haspopup="dialog" class="w-full flex items-center gap-3 px-2 py-2 rounded-md text-left hover:bg-white/10">
+          <span id="avatar" class="w-9 h-9 shrink-0 rounded-full bg-al-blue text-white font-bold flex items-center justify-center text-sm" aria-hidden="true"></span>
+          <span class="min-w-0 flex-1">
+            <span id="user-name" class="block text-sm font-semibold text-white truncate"></span>
+            <span id="user-role" class="block text-xs text-white/50 truncate"></span>
+          </span>
+          <svg class="w-4 h-4 text-white/40 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+        </button>
+      </div>
+    </aside>
+    <!-- Behind the menu on small screens. A tap on it closes the menu. -->
+    <div id="menu-backdrop" class="hidden lg:hidden fixed inset-0 z-[25] bg-al-navy/60"></div>
+
+    <div id="main" class="flex-1 min-w-0 flex flex-col transition-[padding] duration-300 ease-out motion-reduce:transition-none">
+      <!-- Top bar -->
+      <div class="bg-al-surface border-b border-al-sand h-14 sm:h-16 shrink-0 sticky top-0 z-20 flex items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6">
+        <div class="flex items-center gap-3 min-w-0">
+          <button id="menu-btn" type="button" class="lg:hidden p-2 -ml-2 rounded-md hover:bg-al-light" aria-label="Open the menu" aria-expanded="false" aria-controls="sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+          <div id="crumb" class="text-sm text-al-navy/60 truncate"></div>
+        </div>
+        <div class="flex items-center gap-2 text-xs shrink-0">
+          <span id="period" class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-al-light text-al-navy/80 font-semibold"></span>
+          <button id="theme-btn" type="button" class="p-2 rounded-full text-al-navy/70 hover:bg-al-light hover:text-al-navy" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg data-theme-icon="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+            <svg data-theme-icon="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          </button>
+          <button id="chat-btn" type="button" aria-expanded="false" aria-controls="chat" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-al-deep text-white font-semibold hover:bg-al-navy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+            Ask
+          </button>
+        </div>
+      </div>
+
+      <!-- Module: Close Assistant (the working prototype) -->
+      <section id="module-close" class="flex-1 flex flex-col">
+        <div class="bg-al-surface border-b border-al-sand">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-5">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <div class="text-xl font-bold text-al-navy" style="letter-spacing:-.02em">Close Assistant</div>
+              <span class="inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-al-green/25 text-al-good">Live prototype</span>
+              <span class="hidden sm:inline text-sm text-al-navy/60">Back office · Accounting · for the Accounting Manager and staff accountants</span>
+            </div>
+            <nav id="tabs" class="flex overflow-x-auto no-scrollbar mt-1 sm:mt-2 -mb-px -mx-4 px-4 sm:mx-0 sm:px-0" aria-label="Close Assistant sections"></nav>
+          </div>
+        </div>
+        <main id="view" class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-8"></main>
+      </section>
+
+      <!-- Platform pages (executive view, planned modules, how the OS fits) -->
+      <section id="shell-view" class="flex-1 hidden max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-8"></section>
+
+      <footer class="max-w-7xl w-full mx-auto px-4 sm:px-6 pb-8 text-xs text-al-navy/50">Concept prototype by Darren Williams for the Asset Living build exercise. All data is synthetic, from the exercise data pack. Runs entirely in this browser.</footer>
+    </div>
+  </div>
+  <!-- Switch user: who is reviewing. Opens from the avatar in the sidebar. -->
+  <div id="user-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="user-modal-title">
+    <div data-user-close class="absolute inset-0 bg-al-navy/50"></div>
+    <div class="relative w-full max-w-sm bg-al-surface rounded-xl shadow-xl overflow-hidden">
+      <div class="flex items-center justify-between px-5 h-14 border-b border-al-sand">
+        <h2 id="user-modal-title" class="font-semibold text-al-deep">Switch user</h2>
+        <button type="button" data-user-close aria-label="Close" class="p-2 -mr-2 rounded-md hover:bg-al-light"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div id="user-list" class="p-2 max-h-[70vh] overflow-y-auto"></div>
+    </div>
+  </div>
+  <!-- Ask panel: answers questions about this close from the checks' results (js/chat.js) -->
+  <aside id="chat" class="flex invisible translate-x-full fixed inset-y-0 right-0 w-full sm:w-[26rem] bg-al-surface border-l border-al-sand shadow-xl z-40 flex-col transition-[transform,visibility] duration-300 ease-out motion-reduce:transition-none" aria-label="Ask about this close"></aside>
+  <div id="toast" role="status" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 bg-al-navy text-white text-sm px-4 py-3 rounded-md shadow-lg max-w-[90vw] z-40"></div>
+
+  <script src="js/vendor/xlsx.full.min.js"></script>
+  <script src="js/data-pack.js"></script>
+  <script src="js/answer-key.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/shell.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

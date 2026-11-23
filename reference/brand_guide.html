@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asset Living Brand Guide (derived from assetliving.com)</title>
+
+<!-- Free substitutes for the licensed site fonts (see Typography section) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Figtree:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- ============ COPY FROM HERE: Tailwind brand config ============ -->
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          // Extracted from :root custom properties in the site stylesheet
+          'dark-blue':   '#0c1827', // --dark-blue: page background, nav, body text on light
+          'deep-blue':   '#154571', // --deep-blue: headings and text on light, panels, borders
+          'asset-blue':  '#3ea0c7', // --asset-blue: links, icons
+          'grey-blue':   '#a5bac9', // --asset-grey-blue: nav hover, muted text on dark
+          'cream':       '#f8f6f3', // --cream: light background, text on dark
+          'cream-hover': '#efebe6', // --cream-hover: hover fill on cream
+          'white':       '#ffffff', // --white-smoke (declared as "white")
+          'light-gray':  '#f4f4f4', // --light-gray
+          'orange':      '#f6a800', // --asset-orange: accent, active tab
+          'green':       '#93d500', // --asset-green: quote marks, accent
+          // Extracted literal values used in individual rules
+          'heading-cream': '#f1ede7', // h1, h3-h6 colour on dark
+          'sand':        '#e0dad1', // card hover on cream; used here as border
+          'stone':       '#d7d5cd', // secondary neutral
+          'slate':       '#5c7d99', // footer legal links
+          'ocean':       '#6a99a6', // tertiary background
+          'sky':         '#c5e9f4', // sky-blue text on dark
+          'ink':         '#1b2226', // alternate button text, glass overlay base
+        },
+        // PROPOSED product-UI extensions. Not from the site.
+        ui: {
+          'muted':      '#4a6a85',
+          'success':    '#3d6b00', 'success-bg': '#eef8d4',
+          'warning':    '#8a5a00', 'warning-bg': '#fef3d6',
+          'danger':     '#b3372b', 'danger-bg':  '#fbe9e7',
+          'info':       '#1f6e90', 'info-bg':    '#e6f3f8',
+        },
+      },
+      fontFamily: {
+        // Licensed site font first, free substitute second
+        display: ['"freight-display-pro"', '"Source Serif 4"', 'Georgia', 'serif'],
+        sans:    ['Gilroy', 'Figtree', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+        script:  ['Gustav', 'Caveat', 'cursive'],
+      },
+      fontSize: {
+        // Extracted type scale (rem values straight from the stylesheet)
+        'hero-xl': ['6rem',     { lineHeight: '1.1' }],
+        'hero':    ['4.5rem',   { lineHeight: '1.1' }],
+        'h1':      ['3.5rem',   { lineHeight: '1.1' }],
+        'h2':      ['3rem',     { lineHeight: '1.1' }],
+        'h3':      ['2.5rem',   { lineHeight: '1.1' }],
+        'h4':      ['2rem',     { lineHeight: '1.1' }],
+        'h5':      ['1.5rem',   { lineHeight: '1.1' }],
+        'h6':      ['1.25rem',  { lineHeight: '1.3' }],
+        'body-lg': ['1.25rem',  { lineHeight: '1.5' }],
+        'body':    ['1.125rem', { lineHeight: '1.5' }],
+        'body-md': ['1rem',     { lineHeight: '1.5' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }],
+        'tiny':    ['0.75rem',  { lineHeight: '1.5' }],
+      },
+      letterSpacing: { overline: '2px', category: '0.5px' },
+      maxWidth: { 'container-sm': '48rem', 'container-md': '64rem', 'container-lg': '80rem' },
+      borderRadius: {
+        'brand': '0px',        // site default: square corners everywhere
+        'brand-xs': '0.125rem',// checkboxes
+        'brand-tag': '4px',    // blog tag pill
+        'brand-panel': '2rem', // rare rounded cream panel
+      },
+      boxShadow: {
+        'brand-nav':  '0 2px 5px #1545710a', // fixed navbar
+        'brand-card': '0 2px 5px #00000014', // most common shadow in the stylesheet
+        'brand-pop':  '0 4px 13px #0003',    // single use, popovers
+      },
+      transitionTimingFunction: { brand: 'cubic-bezier(.645,.045,.355,1)' },
+      transitionDuration: { brand: '400ms' },
+    },
+  },
+};
+</script>
+<!-- ============ COPY TO HERE ============ -->
+
+<style>
+  :root {
+    --dark-blue:#0c1827; --deep-blue:#154571; --asset-blue:#3ea0c7; --asset-grey-blue:#a5bac9;
+    --cream:#f8f6f3; --cream-hover:#efebe6; --white-smoke:#ffffff; --light-gray:#f4f4f4;
+    --asset-orange:#f6a800; --asset-green:#93d500;
+    --glass-overlay-light:#f0ede766; --glass-overlay-dark:#1b222666;
+  }
+  body { font-feature-settings: "tnum" 0; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  /* The site's "diamond" dark gradient, copied verbatim from .background-color-diamond */
+  .bg-diamond { background-color:#0c1827; background-image:
+    radial-gradient(circle at 60%,#06244a52 15%,#0c1827f5 54%),
+    linear-gradient(138deg,#0c182799 55%,#06244ae0 66%,#0c182799 76%),
+    linear-gradient(191deg,#0c182799 42%,#06244ae0 49%,#0c182799 62%); }
+  pre { tab-size: 2; }
+</style>
+</head>
+
+<body class="bg-brand-cream text-brand-dark-blue font-sans text-body-md antialiased">
+
+<!-- ================= TOP NAV (guide navigation, styled like the site's white-mode navbar) ================= -->
+<header class="sticky top-0 z-50 bg-brand-white shadow-brand-nav">
+  <div class="mx-auto flex min-h-[4.5rem] max-w-container-lg items-center justify-between gap-6 px-4 sm:px-10">
+    <a href="#top" class="flex shrink-0 items-center gap-3">
+      <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14cf25139ecf6_Asset%20Logo.svg" alt="Asset Living" class="h-8 w-auto"
+           onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+      <span class="hidden font-display text-h5 text-brand-deep-blue">Asset Living</span>
+      <span class="hidden border-l border-brand-sand pl-3 text-body-sm font-medium text-brand-deep-blue sm:inline">Brand Guide</span>
+    </a>
+    <nav class="hidden items-center gap-1 text-body-sm font-medium text-brand-deep-blue lg:flex">
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#logo">Logo</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#color">Color</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#type">Typography</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#tokens">Tokens</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#components">Components</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#product">Product UI</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#voice">Voice</a>
+      <a class="px-3 py-2 hover:bg-brand-cream" href="#code">Code</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO / OVERVIEW ================= -->
+<section id="top" class="bg-diamond text-brand-cream">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10 lg:py-32">
+    <p class="mb-6 text-body-sm uppercase tracking-overline text-brand-grey-blue">Brand guide &middot; derived from assetliving.com &middot; 2026-11-21</p>
+    <h1 class="max-w-4xl font-display text-[2rem] leading-[1.1] text-brand-heading-cream md:text-h2 lg:text-hero">
+      A confident navy, a warm cream, and one <em>italic</em> word per headline.
+    </h1>
+    <p class="mt-8 max-w-2xl text-body-lg text-brand-cream/90">
+      This guide records the visual system of Asset Living's public website so a product prototype can feel native to it.
+      Every token is taken from the site's stylesheet and markup unless it carries an
+      <span class="border border-brand-orange px-1.5 py-0.5 text-body-sm text-brand-orange">inferred</span> or
+      <span class="border border-brand-green px-1.5 py-0.5 text-body-sm text-brand-green">proposed</span> label.
+    </p>
+    <div class="mt-14 grid gap-8 border-t border-brand-cream/20 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div><p class="font-display text-h5 text-brand-heading-cream">Editorial serif</p><p class="mt-2 text-body-sm text-brand-grey-blue">Freight Display at weight 400 for every heading. Large, light, never bold.</p></div>
+      <div><p class="font-display text-h5 text-brand-heading-cream">Navy and cream</p><p class="mt-2 text-body-sm text-brand-grey-blue">Sections alternate between dark blue, deep blue, cream and white.</p></div>
+      <div><p class="font-display text-h5 text-brand-heading-cream">Square corners</p><p class="mt-2 text-body-sm text-brand-grey-blue">Buttons, cards, images and inputs have a radius of zero. Shadows are near invisible.</p></div>
+      <div><p class="font-display text-h5 text-brand-heading-cream">Sparing accents</p><p class="mt-2 text-body-sm text-brand-grey-blue">Orange, green and sky blue appear as small marks: an active tab, a quote glyph, an icon.</p></div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<!-- ================= LOGO ================= -->
+<section id="logo" class="bg-brand-white">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">01 &middot; Logo</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">The mark, as <em>served</em> by the site</h2>
+    <p class="mt-4 max-w-3xl text-brand-deep-blue">Both variants are loaded here directly from the site's CDN. Nothing is redrawn. If the images do not load (offline), a text fallback appears. For the prototype, obtain the official files from Asset Living rather than hot-linking.</p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <figure class="border border-brand-sand">
+        <div class="flex h-48 items-center justify-center bg-brand-cream p-8">
+          <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14cf25139ecf6_Asset%20Logo.svg" alt="Asset Living logo, dark wordmark" class="h-14 w-auto"
+               onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="hidden font-display text-h3 text-brand-deep-blue">Asset Living</span>
+        </div>
+        <figcaption class="space-y-1 p-5 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Primary (dark wordmark) for cream and white backgrounds</p>
+          <p class="text-ui-muted">SVG, 191 &times; 40. Used in the white-mode navbar and the footer.</p>
+          <p class="break-all font-mono text-tiny text-ui-muted">https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14cf25139ecf6_Asset%20Logo.svg</p>
+        </figcaption>
+      </figure>
+      <figure class="border border-brand-sand">
+        <div class="flex h-48 items-center justify-center bg-brand-dark-blue p-8">
+          <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14c077439ecfe_Asset%20Logo%20-%20light.svg" alt="Asset Living logo, light wordmark" class="h-14 w-auto"
+               onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="hidden font-display text-h3 text-brand-cream">Asset Living</span>
+        </div>
+        <figcaption class="space-y-1 p-5 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Light (cream wordmark) for dark blue and deep blue backgrounds</p>
+          <p class="text-ui-muted">SVG, 191 &times; 40. Used in the dark navbar on the homepage. A PNG version also exists.</p>
+          <p class="break-all font-mono text-tiny text-ui-muted">https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14c077439ecfe_Asset%20Logo%20-%20light.svg</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Fill colors inside the logo SVGs</h3>
+        <p class="mt-2 text-body-sm text-ui-muted">The logo files use slightly different hex values from the website's CSS tokens. Use the logo values only inside the logo; use the CSS tokens for UI.</p>
+        <div class="mt-4 grid grid-cols-5 gap-2 text-center text-tiny">
+          <div><div class="h-12 border border-brand-sand" style="background:#1A3E68"></div><p class="mt-1 font-mono">#1A3E68</p><p class="text-ui-muted">wordmark (dark)</p></div>
+          <div><div class="h-12 border border-brand-sand" style="background:#F0EDE7"></div><p class="mt-1 font-mono">#F0EDE7</p><p class="text-ui-muted">wordmark (light)</p></div>
+          <div><div class="h-12" style="background:#00A1E4"></div><p class="mt-1 font-mono">#00A1E4</p><p class="text-ui-muted">blue</p></div>
+          <div><div class="h-12" style="background:#A6CE39"></div><p class="mt-1 font-mono">#A6CE39</p><p class="text-ui-muted">green</p></div>
+          <div><div class="h-12" style="background:#F2A900"></div><p class="mt-1 font-mono">#F2A900</p><p class="text-ui-muted">orange</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Other brand image assets found</h3>
+        <ul class="mt-3 space-y-2 break-all font-mono text-tiny text-ui-muted">
+          <li><span class="font-sans font-semibold text-brand-deep-blue">Favicon (PNG):</span> https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14ccd2739ecf2_favicon.png</li>
+          <li><span class="font-sans font-semibold text-brand-deep-blue">Light logo (PNG):</span> https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/6ae20b6a94bb4b8f265e8d41_Asset%20Logo%20-%20light.png</li>
+          <li><span class="font-sans font-semibold text-brand-deep-blue">White icon element (PNG, decorative background):</span> https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/659da72491585a25ca12c9ae_1_Asset_ELEMENTS-white-icon.png</li>
+        </ul>
+        <p class="mt-3 text-body-sm text-ui-muted">In the navbar the logo link has a minimum width of 8.5rem and the image is capped at 70% of it. Clear-space and minimum-size rules are not published on the site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COLOR ================= -->
+<section id="color" class="bg-brand-cream">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">02 &middot; Color</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">Palette, ranked by <em>use</em></h2>
+    <p class="mt-4 max-w-3xl text-brand-deep-blue">The stylesheet declares twelve custom properties on <code class="font-mono text-body-sm">:root</code>. The count beside each core color is how many times its variable is referenced in the site CSS, which is the ranking used here.</p>
+
+    <h3 class="mt-12 font-display text-h5 text-brand-deep-blue">Core palette (extracted)</h3>
+    <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- swatch -->
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 border-b border-brand-sand bg-brand-cream"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Cream <span class="font-normal text-ui-muted">&middot; 179 uses</span></p>
+          <p class="font-mono text-tiny">#F8F6F3 &middot; rgb(248, 246, 243)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-cream &middot; --cream</p>
+          <p class="text-ui-muted">Light section background, text and borders on dark, default button fill.</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 bg-brand-deep-blue"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Deep Blue <span class="font-normal text-ui-muted">&middot; 146 uses</span></p>
+          <p class="font-mono text-tiny">#154571 &middot; rgb(21, 69, 113)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-deep-blue &middot; --deep-blue</p>
+          <p class="text-ui-muted">Headings and body text on light, panels, input underline, footer links, white-mode button.</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 bg-brand-dark-blue"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Dark Blue <span class="font-normal text-ui-muted">&middot; 116 uses</span></p>
+          <p class="font-mono text-tiny">#0C1827 &middot; rgb(12, 24, 39)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-dark-blue &middot; --dark-blue</p>
+          <p class="text-ui-muted">Default page background, dark navbar, dropdowns, button hover fill, strongest text on light.</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 border-b border-brand-sand bg-brand-white"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">White <span class="font-normal text-ui-muted">&middot; 80 uses</span></p>
+          <p class="font-mono text-tiny">#FFFFFF &middot; rgb(255, 255, 255)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-white &middot; --white-smoke</p>
+          <p class="text-ui-muted">White-mode navbar and sections, cards on cream, text on photos. Declared as the keyword "white".</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 bg-brand-grey-blue"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Grey Blue <span class="font-normal text-ui-muted">&middot; 30 uses</span></p>
+          <p class="font-mono text-tiny">#A5BAC9 &middot; rgb(165, 186, 201)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-grey-blue &middot; --asset-grey-blue</p>
+          <p class="text-ui-muted">Nav link hover, muted text and placeholders on dark, light-blue panels.</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 bg-brand-asset-blue"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Asset Blue <span class="font-normal text-ui-muted">&middot; 23 uses</span></p>
+          <p class="font-mono text-tiny">#3EA0C7 &middot; rgb(62, 160, 199)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-asset-blue &middot; --asset-blue</p>
+          <p class="text-ui-muted">Default link color, LinkedIn icon on leadership cards, italic emphasis text.</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 bg-brand-orange"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Asset Orange <span class="font-normal text-ui-muted">&middot; 22 uses</span></p>
+          <p class="font-mono text-tiny">#F6A800 &middot; rgb(246, 168, 0)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-orange &middot; --asset-orange</p>
+          <p class="text-ui-muted">Active tab text and underline, small icons, accent words.</p>
+        </div>
+      </article>
+      <article class="border border-brand-sand bg-brand-white">
+        <div class="h-28 bg-brand-green"></div>
+        <div class="space-y-1 p-4 text-body-sm">
+          <p class="font-semibold text-brand-deep-blue">Asset Green <span class="font-normal text-ui-muted">&middot; 14 uses</span></p>
+          <p class="font-mono text-tiny">#93D500 &middot; rgb(147, 213, 0)</p>
+          <p class="font-mono text-tiny text-ui-muted">brand-green &middot; --asset-green</p>
+          <p class="text-ui-muted">Quotation-mark glyphs on testimonials. Decorative only.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Supporting neutrals and tints (extracted)</h3>
+    <div class="mt-5 overflow-x-auto border border-brand-sand bg-brand-white">
+      <table class="w-full min-w-[720px] text-left text-body-sm">
+        <thead class="border-b border-brand-sand text-tiny uppercase tracking-[1px] text-ui-muted">
+          <tr><th class="px-4 py-3 font-semibold">Swatch</th><th class="px-4 py-3 font-semibold">Hex</th><th class="px-4 py-3 font-semibold">RGB</th><th class="px-4 py-3 font-semibold">Tailwind token</th><th class="px-4 py-3 font-semibold">Where the site uses it</th></tr>
+        </thead>
+        <tbody class="divide-y divide-brand-sand/70">
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 border border-brand-sand bg-brand-cream-hover"></div></td><td class="px-4 py-3 font-mono">#EFEBE6</td><td class="px-4 py-3 font-mono">239, 235, 230</td><td class="px-4 py-3 font-mono">brand-cream-hover</td><td class="px-4 py-3">--cream-hover. Dropdown link hover in light mode.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 border border-brand-sand bg-brand-heading-cream"></div></td><td class="px-4 py-3 font-mono">#F1EDE7</td><td class="px-4 py-3 font-mono">241, 237, 231</td><td class="px-4 py-3 font-mono">brand-heading-cream</td><td class="px-4 py-3">Default color of h1 and h3 to h6 (on dark), underlined text links.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 border border-brand-sand bg-brand-light-gray"></div></td><td class="px-4 py-3 font-mono">#F4F4F4</td><td class="px-4 py-3 font-mono">244, 244, 244</td><td class="px-4 py-3 font-mono">brand-light-gray</td><td class="px-4 py-3">--light-gray. Input underline on dark forms.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 bg-brand-sand"></div></td><td class="px-4 py-3 font-mono">#E0DAD1</td><td class="px-4 py-3 font-mono">224, 218, 209</td><td class="px-4 py-3 font-mono">brand-sand</td><td class="px-4 py-3">Hover fill of featured blog rows on cream. Used in this guide as the hairline border.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 bg-brand-stone"></div></td><td class="px-4 py-3 font-mono">#D7D5CD</td><td class="px-4 py-3 font-mono">215, 213, 205</td><td class="px-4 py-3 font-mono">brand-stone</td><td class="px-4 py-3">Minor neutral fills.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 bg-brand-slate"></div></td><td class="px-4 py-3 font-mono">#5C7D99</td><td class="px-4 py-3 font-mono">92, 125, 153</td><td class="px-4 py-3 font-mono">brand-slate</td><td class="px-4 py-3">Footer legal links (Privacy Policy, Disclosures).</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 bg-brand-ocean"></div></td><td class="px-4 py-3 font-mono">#6A99A6</td><td class="px-4 py-3 font-mono">106, 153, 166</td><td class="px-4 py-3 font-mono">brand-ocean</td><td class="px-4 py-3">Tertiary background and "ocean" text on a sub-brand section.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 bg-brand-sky"></div></td><td class="px-4 py-3 font-mono">#C5E9F4</td><td class="px-4 py-3 font-mono">197, 233, 244</td><td class="px-4 py-3 font-mono">brand-sky</td><td class="px-4 py-3">Sky-blue text on dark.</td></tr>
+          <tr><td class="px-4 py-3"><div class="h-8 w-14 bg-brand-ink"></div></td><td class="px-4 py-3 font-mono">#1B2226</td><td class="px-4 py-3 font-mono">27, 34, 38</td><td class="px-4 py-3 font-mono">brand-ink</td><td class="px-4 py-3">Alternate button text. Base of --glass-overlay-dark (#1B222666).</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-14 grid gap-8 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Interaction states (extracted)</h3>
+        <ul class="mt-4 space-y-3 text-body-sm text-brand-deep-blue">
+          <li class="flex gap-3"><span class="mt-1 h-4 w-4 shrink-0 bg-brand-asset-blue"></span><span><b>Link:</b> #3EA0C7, no underline. In-text links on dark use #F1EDE7 with an underline.</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-4 w-4 shrink-0 bg-brand-grey-blue"></span><span><b>Nav link hover:</b> text shifts from cream to #A5BAC9. Current page gets a 1px cream bottom border.</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-4 w-4 shrink-0" style="background:#15457066"></span><span><b>Dropdown hover (dark):</b> #15457066, deep blue at 40% alpha. Light mode uses #EFEBE6, white mode uses #F8F6F3.</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-4 w-4 shrink-0 bg-brand-dark-blue"></span><span><b>Footer link hover:</b> #154571 to #0C1827 over 350ms.</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-4 w-4 shrink-0 bg-brand-orange"></span><span><b>Active tab:</b> #F6A800 text with a 1px #F6A800 underline. The leadership tabs use cream at 80% (#F8F6F3CC).</span></li>
+          <li class="flex gap-3"><span class="mt-1 h-4 w-4 shrink-0" style="background:#154571b8"></span><span><b>Divider:</b> #154571B8 (deep blue at 72%), 1px, in the footer.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Gradients and overlays (extracted)</h3>
+        <div class="mt-4 grid grid-cols-2 gap-4 text-tiny">
+          <div><div class="bg-diamond h-24"></div><p class="mt-2 font-semibold text-brand-deep-blue">"Diamond" dark background</p><p class="text-ui-muted">Radial plus two angled linear gradients of #0C1827 and #06244A at varying alpha.</p></div>
+          <div><div class="h-24 bg-brand-white" style="background-image:linear-gradient(to bottom,#0000,#154571)"></div><p class="mt-2 font-semibold text-brand-deep-blue">Fade to deep blue</p><p class="text-ui-muted">linear-gradient(to bottom, transparent, #154571).</p></div>
+          <div><div class="h-24" style="background:linear-gradient(#0c182780,#0c182780),linear-gradient(135deg,#a5bac9,#6a99a6)"></div><p class="mt-2 font-semibold text-brand-deep-blue">Photo scrim</p><p class="text-ui-muted">#0C182780 (dark blue at 50%) laid flat over photography. Shown here over a placeholder.</p></div>
+          <div><div class="h-24" style="background:linear-gradient(90deg,#0c1827,transparent),#154571"></div><p class="mt-2 font-semibold text-brand-deep-blue">Edge fade</p><p class="text-ui-muted">linear-gradient(90deg, #0C1827, transparent) on carousels.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Contrast (WCAG 2.1)</h3>
+    <p class="mt-2 max-w-3xl text-body-sm text-ui-muted">Ratios are computed from the extracted hex values. AA needs 4.5:1 for normal text and 3:1 for large text (24px and up, or 18.66px bold) and for UI graphics.</p>
+    <div class="mt-5 overflow-x-auto border border-brand-sand bg-brand-white">
+      <table class="tnum w-full min-w-[720px] text-left text-body-sm">
+        <thead class="border-b border-brand-sand text-tiny uppercase tracking-[1px] text-ui-muted">
+          <tr><th class="px-4 py-3 font-semibold">Sample</th><th class="px-4 py-3 font-semibold">Text</th><th class="px-4 py-3 font-semibold">Background</th><th class="px-4 py-3 text-right font-semibold">Ratio</th><th class="px-4 py-3 font-semibold">AA normal</th><th class="px-4 py-3 font-semibold">AA large</th></tr>
+        </thead>
+        <tbody class="divide-y divide-brand-sand/70">
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-dark-blue px-3 py-1 text-brand-cream">Aa Text</span></td><td class="px-4 py-2">Cream #F8F6F3</td><td class="px-4 py-2">Dark Blue #0C1827</td><td class="px-4 py-2 text-right">16.56</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-deep-blue px-3 py-1 text-brand-cream">Aa Text</span></td><td class="px-4 py-2">Cream #F8F6F3</td><td class="px-4 py-2">Deep Blue #154571</td><td class="px-4 py-2 text-right">9.18</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-cream px-3 py-1 text-brand-deep-blue">Aa Text</span></td><td class="px-4 py-2">Deep Blue #154571</td><td class="px-4 py-2">Cream #F8F6F3</td><td class="px-4 py-2 text-right">9.18</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-white px-3 py-1 text-brand-deep-blue">Aa Text</span></td><td class="px-4 py-2">Deep Blue #154571</td><td class="px-4 py-2">White #FFFFFF</td><td class="px-4 py-2 text-right">9.90</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-white px-3 py-1 text-brand-dark-blue">Aa Text</span></td><td class="px-4 py-2">Dark Blue #0C1827</td><td class="px-4 py-2">White #FFFFFF</td><td class="px-4 py-2 text-right">17.86</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-dark-blue px-3 py-1 text-brand-grey-blue">Aa Text</span></td><td class="px-4 py-2">Grey Blue #A5BAC9</td><td class="px-4 py-2">Dark Blue #0C1827</td><td class="px-4 py-2 text-right">8.90</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-deep-blue px-3 py-1 text-brand-grey-blue">Aa Text</span></td><td class="px-4 py-2">Grey Blue #A5BAC9</td><td class="px-4 py-2">Deep Blue #154571</td><td class="px-4 py-2 text-right">4.93</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-dark-blue px-3 py-1 text-brand-asset-blue">Aa Text</span></td><td class="px-4 py-2">Asset Blue #3EA0C7</td><td class="px-4 py-2">Dark Blue #0C1827</td><td class="px-4 py-2 text-right">6.00</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-white px-3 py-1 text-brand-asset-blue">Aa Text</span></td><td class="px-4 py-2">Asset Blue #3EA0C7</td><td class="px-4 py-2">White #FFFFFF</td><td class="px-4 py-2 text-right">2.98</td><td class="px-4 py-2 font-semibold text-ui-danger">Fail</td><td class="px-4 py-2 font-semibold text-ui-danger">Fail</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-dark-blue px-3 py-1 text-brand-orange">Aa Text</span></td><td class="px-4 py-2">Orange #F6A800</td><td class="px-4 py-2">Dark Blue #0C1827</td><td class="px-4 py-2 text-right">8.95</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-deep-blue px-3 py-1 text-brand-orange">Aa Text</span></td><td class="px-4 py-2">Orange #F6A800</td><td class="px-4 py-2">Deep Blue #154571</td><td class="px-4 py-2 text-right">4.96</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-white px-3 py-1 text-brand-orange">Aa Text</span></td><td class="px-4 py-2">Orange #F6A800</td><td class="px-4 py-2">White #FFFFFF</td><td class="px-4 py-2 text-right">2.00</td><td class="px-4 py-2 font-semibold text-ui-danger">Fail</td><td class="px-4 py-2 font-semibold text-ui-danger">Fail</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block bg-brand-dark-blue px-3 py-1 text-brand-green">Aa Text</span></td><td class="px-4 py-2">Green #93D500</td><td class="px-4 py-2">Dark Blue #0C1827</td><td class="px-4 py-2 text-right">10.00</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-white px-3 py-1 text-brand-slate">Aa Text</span></td><td class="px-4 py-2">Slate #5C7D99</td><td class="px-4 py-2">White #FFFFFF</td><td class="px-4 py-2 text-right">4.33</td><td class="px-4 py-2 font-semibold text-ui-danger">Fail</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+          <tr><td class="px-4 py-2"><span class="inline-block border border-brand-sand bg-brand-white px-3 py-1 text-ui-muted">Aa Text</span></td><td class="px-4 py-2">UI Muted #4A6A85 <span class="text-tiny text-ui-success">(proposed)</span></td><td class="px-4 py-2">White #FFFFFF</td><td class="px-4 py-2 text-right">5.69</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td><td class="px-4 py-2 font-semibold text-ui-success">Pass</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 max-w-3xl text-body-sm text-brand-deep-blue"><b>Practical rule:</b> on white or cream, set text in Deep Blue or Dark Blue. Asset Blue, Orange and Green are safe as text only on the two navy backgrounds. On light surfaces keep them to fills, icons and chart marks, and pair them with Dark Blue text.</p>
+  </div>
+</section>
+
+<!-- ================= TYPOGRAPHY ================= -->
+<section id="type" class="bg-brand-white">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">03 &middot; Typography</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">A light serif over a <em>geometric</em> sans</h2>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+      <div class="border border-brand-sand p-6">
+        <p class="text-tiny uppercase tracking-[1px] text-ui-muted">Headings</p>
+        <p class="mt-2 font-display text-h3 text-brand-deep-blue">Freight Display Pro</p>
+        <p class="mt-3 text-body-sm text-brand-deep-blue">CSS name <code class="font-mono">freight-display-pro</code>. Loaded from Adobe Fonts (Typekit kit <code class="font-mono">xdb8bdk</code>), weights 400 to 700 with italics. The site uses weight 400 only. <b>Licensed.</b></p>
+        <p class="mt-3 border-l-2 border-brand-orange pl-3 text-body-sm text-brand-deep-blue"><b>Substitute in this guide (inferred choice):</b> Source Serif 4 from Google Fonts. The site also self-hosts Source Serif Pro for a few italic accents, so it is already in the family.</p>
+      </div>
+      <div class="border border-brand-sand p-6">
+        <p class="text-tiny uppercase tracking-[1px] text-ui-muted">Body and UI</p>
+        <p class="mt-2 text-h4 font-medium text-brand-deep-blue">Gilroy</p>
+        <p class="mt-3 text-body-sm text-brand-deep-blue">Self-hosted OTF files on the site's CDN, weights 100 to 900. Body is 400; nav and labels are 500; names on cards are 600. <b>Commercial license.</b> Do not hot-link the site's font files.</p>
+        <p class="mt-3 border-l-2 border-brand-orange pl-3 text-body-sm text-brand-deep-blue"><b>Substitute in this guide (inferred choice):</b> Figtree from Google Fonts, a geometric sans with similar proportions and good tabular figures for data.</p>
+      </div>
+      <div class="border border-brand-sand p-6">
+        <p class="text-tiny uppercase tracking-[1px] text-ui-muted">Script accent</p>
+        <p class="mt-2 font-script text-h3 text-brand-deep-blue">Team Asset</p>
+        <p class="mt-3 text-body-sm text-brand-deep-blue">Gustav, self-hosted OTF, one weight. Used only for the handwritten "Team Asset" wordmark at 2.5 to 3rem. Larken (Adobe Fonts) appears as an italic blog-category label.</p>
+        <p class="mt-3 border-l-2 border-brand-orange pl-3 text-body-sm text-brand-deep-blue"><b>Substitute (inferred choice):</b> Caveat. Leave the script out of a product UI unless a marketing moment calls for it.</p>
+      </div>
+    </div>
+
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Heading scale (extracted)</h3>
+    <p class="mt-2 text-body-sm text-ui-muted">All headings: weight 400, line-height 1.1, no text-transform, no letter-spacing, zero margins (spacing comes from wrapper utilities). Specimens below scale down on small screens the way the site does.</p>
+    <div class="mt-6 divide-y divide-brand-sand border-y border-brand-sand">
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">hero-xl &middot; 6rem / 96px<br>text-hero-xl</p><p class="truncate font-display text-[2.5rem] leading-[1.1] text-brand-deep-blue md:text-hero lg:text-hero-xl">Nationwide</p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">hero-large &middot; 4.5rem / 72px<br>text-hero</p><p class="truncate font-display text-[2.25rem] leading-[1.1] text-brand-deep-blue md:text-h1 lg:text-hero">Driving <em>success</em></p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">h1 &middot; 3.5rem / 56px<br>tablet 3rem, mobile 2rem<br>text-h1</p><p class="font-display text-[2rem] leading-[1.1] text-brand-deep-blue md:text-h2 lg:text-h1">Our Leadership Team</p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">h2 &middot; 3rem / 48px<br>tablet 2.5rem, mobile 1.875rem<br>text-h2</p><p class="font-display text-[1.875rem] leading-[1.1] text-brand-deep-blue md:text-h3 lg:text-h2">Be a part of something bigger.</p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">h3 &middot; 2.5rem / 40px<br>tablet 2rem, mobile 1.75rem<br>text-h3</p><p class="font-display text-[1.75rem] leading-[1.1] text-brand-deep-blue md:text-h4 lg:text-h3">Proven Expertise</p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">h4 &middot; 2rem / 32px<br>tablet 1.875rem, mobile 1.5rem<br>text-h4</p><p class="font-display text-[1.5rem] leading-[1.1] text-brand-deep-blue lg:text-h4">Dedicated Teams</p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">h5 &middot; 1.5rem / 24px<br>mobile 1.375rem<br>text-h5</p><p class="font-display text-h5 text-brand-deep-blue">Client-Centric Approach</p></div>
+      <div class="grid items-baseline gap-2 py-5 md:grid-cols-[13rem_1fr]"><p class="font-mono text-tiny text-ui-muted">h6 &middot; 1.25rem / 20px, lh 1.3<br>text-h6</p><p class="font-display text-h6 text-brand-deep-blue">CEO &amp; President</p></div>
+    </div>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Body scale (extracted)</h3>
+        <div class="mt-4 divide-y divide-brand-sand border-y border-brand-sand text-brand-deep-blue">
+          <div class="py-4"><p class="font-mono text-tiny text-ui-muted">text-size-large &middot; 1.25rem / 20px &middot; text-body-lg</p><p class="text-body-lg">Meet our diverse team of industry experts.</p></div>
+          <div class="py-4"><p class="font-mono text-tiny text-ui-muted">body default &middot; 1.125rem / 18px, line-height 1.5 &middot; text-body</p><p class="text-body">We put your needs at the forefront of everything we do.</p></div>
+          <div class="py-4"><p class="font-mono text-tiny text-ui-muted">text-size-medium / regular &middot; 1rem / 16px &middot; text-body-md (also button text)</p><p class="text-body-md">Our regional teams bring passion and expertise.</p></div>
+          <div class="py-4"><p class="font-mono text-tiny text-ui-muted">text-size-small &middot; 0.875rem / 14px &middot; text-body-sm (nav dropdowns, footer links)</p><p class="text-body-sm">&copy; 2026 Asset Living. All rights reserved.</p></div>
+          <div class="py-4"><p class="font-mono text-tiny text-ui-muted">text-size-tiny &middot; 0.75rem / 12px &middot; text-tiny</p><p class="text-tiny">Fine print and captions.</p></div>
+        </div>
+        <p class="mt-3 text-body-sm text-ui-muted">Weights available as utilities on the site: 300 light, 400 normal, 500 medium, 600 semibold, 700 bold, 800 extra bold.</p>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Conventions (extracted)</h3>
+        <div class="mt-4 space-y-5">
+          <div class="border border-brand-sand p-5">
+            <p class="font-display text-h4 text-brand-deep-blue">It’s a <em>mentality</em> that’s ingrained.</p>
+            <p class="mt-2 text-body-sm text-ui-muted"><b class="text-brand-deep-blue">Italic emphasis word.</b> One word or short phrase per headline is wrapped in a span set to italic. This is the site's signature typographic move. No color change, no weight change.</p>
+          </div>
+          <div class="border border-brand-sand p-5">
+            <p class="text-body-lg uppercase tracking-overline text-brand-deep-blue">Overline label</p>
+            <p class="mt-2 text-body-sm text-ui-muted"><b class="text-brand-deep-blue">Overline / eyebrow.</b> Uppercase, letter-spacing 2px, 1.25rem, weight 400. Used sparingly. This guide uses the same treatment at 0.875rem for section numbers, which is an adaptation.</p>
+          </div>
+          <div class="border border-brand-sand p-5">
+            <p class="text-body-lg font-semibold text-brand-deep-blue">Name in semibold sans</p><p class="text-body-md text-brand-deep-blue">Title in regular sans</p>
+            <p class="mt-2 text-body-sm text-ui-muted"><b class="text-brand-deep-blue">Name and title pair.</b> 1.25rem / 600 over 1rem / 400, centered under a portrait.</p>
+          </div>
+          <div class="border border-brand-sand p-5">
+            <blockquote class="border-l-4 border-brand-deep-blue pl-5 text-body-lg text-brand-deep-blue">To those entrusting us with their communities and residents, we extend our heartfelt gratitude.</blockquote>
+            <p class="mt-2 text-body-sm text-ui-muted"><b class="text-brand-deep-blue">Blockquote.</b> 0.25rem deep-blue left rule, 1.25rem padding, 1.25rem text, line-height 1.5.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOKENS ================= -->
+<section id="tokens" class="bg-brand-cream">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">04 &middot; Layout, spacing, radius, shadow</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">Generous space, <em>square</em> edges</h2>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Spacing scale (extracted)</h3>
+        <p class="mt-2 text-body-sm text-ui-muted">The site's margin and padding utilities. All values map onto Tailwind's default spacing scale.</p>
+        <div class="mt-4 space-y-2 text-tiny">
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">tiny 0.125rem &middot; 0.5</span><span class="h-3 bg-brand-deep-blue" style="width:.125rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">xxsmall 0.25rem &middot; 1</span><span class="h-3 bg-brand-deep-blue" style="width:.25rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">xsmall 0.5rem &middot; 2</span><span class="h-3 bg-brand-deep-blue" style="width:.5rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">small 1rem &middot; 4</span><span class="h-3 bg-brand-deep-blue" style="width:1rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">medium 2rem &middot; 8</span><span class="h-3 bg-brand-deep-blue" style="width:2rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">large 3rem &middot; 12</span><span class="h-3 bg-brand-deep-blue" style="width:3rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">xlarge 4rem &middot; 16</span><span class="h-3 bg-brand-deep-blue" style="width:4rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">xxlarge 5rem &middot; 20</span><span class="h-3 bg-brand-deep-blue" style="width:5rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">huge 6rem &middot; 24</span><span class="h-3 bg-brand-deep-blue" style="width:6rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">xhuge 8rem &middot; 32</span><span class="h-3 bg-brand-deep-blue" style="width:8rem"></span></div>
+          <div class="flex items-center gap-3"><span class="w-40 font-mono text-ui-muted">xxhuge 12rem &middot; 48</span><span class="h-3 max-w-[50%] bg-brand-deep-blue" style="width:12rem"></span></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Layout (extracted)</h3>
+        <dl class="mt-4 divide-y divide-brand-sand border-y border-brand-sand text-body-sm text-brand-deep-blue">
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Containers</dt><dd>80rem (large), 64rem (medium), 48rem (small), centered</dd></div>
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Page gutter</dt><dd>2.5rem left and right. The navbar uses 5% instead.</dd></div>
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Section padding</dt><dd>3rem (small), 5rem (medium), 10rem (large) top and bottom</dd></div>
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Navbar</dt><dd>Fixed, min-height 4.5rem, z-index 99</dd></div>
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Grids</dt><dd>Leadership cards 3 columns, gap 2rem by 4rem. Stats 3 or 4 columns, gap 4rem. Leadership page: 0.5fr tab rail plus 1fr content, gap 5rem. Footer 1fr / 0.75fr.</dd></div>
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Breakpoints</dt><dd>Desktop-first max-width: 991px, 767px, 479px. Large-screen min-width: 1280px, 1440px, 1920px.</dd></div>
+          <div class="grid grid-cols-[10rem_1fr] gap-3 py-3"><dt class="font-semibold">Motion</dt><dd>0.4s cubic-bezier(.645,.045,.355,1) on buttons and nav. 0.35s on footer links and blog cards.</dd></div>
+        </dl>
+        <p class="mt-3 text-body-sm text-ui-muted">Tailwind's default md (768) and lg (1024) are close to the site's 767 and 991. To match exactly, set <code class="font-mono">screens: { sm:'480px', md:'768px', lg:'992px', xl:'1280px', '2xl':'1440px' }</code>.</p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Radius (extracted)</h3>
+        <div class="mt-4 grid grid-cols-2 gap-4 text-tiny sm:grid-cols-4">
+          <div><div class="h-20 rounded-brand border border-brand-deep-blue bg-brand-white"></div><p class="mt-2 font-mono">0 &middot; rounded-brand</p><p class="text-ui-muted">Buttons, cards, inputs, images. The default.</p></div>
+          <div><div class="h-20 rounded-brand-tag border border-brand-deep-blue bg-brand-white"></div><p class="mt-2 font-mono">4px &middot; rounded-brand-tag</p><p class="text-ui-muted">Blog tag chip only.</p></div>
+          <div><div class="h-20 rounded-brand-panel border border-brand-deep-blue bg-brand-white"></div><p class="mt-2 font-mono">2rem &middot; rounded-brand-panel</p><p class="text-ui-muted">One rounded cream panel.</p></div>
+          <div><div class="mx-auto h-20 w-20 rounded-full border border-brand-deep-blue bg-brand-white"></div><p class="mt-2 font-mono">100% &middot; rounded-full</p><p class="text-ui-muted">Dots and circular controls.</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Shadow (extracted)</h3>
+        <div class="mt-4 grid grid-cols-1 gap-4 text-tiny sm:grid-cols-3">
+          <div><div class="h-20 bg-brand-white shadow-brand-nav"></div><p class="mt-2 font-mono">shadow-brand-nav</p><p class="text-ui-muted">0 2px 5px #1545710A. Fixed navbar.</p></div>
+          <div><div class="h-20 bg-brand-white shadow-brand-card"></div><p class="mt-2 font-mono">shadow-brand-card</p><p class="text-ui-muted">0 2px 5px #00000014. Most frequent shadow.</p></div>
+          <div><div class="h-20 bg-brand-white shadow-brand-pop"></div><p class="mt-2 font-mono">shadow-brand-pop</p><p class="text-ui-muted">0 4px 13px #0003. One occurrence.</p></div>
+        </div>
+        <p class="mt-3 text-body-sm text-ui-muted">The site separates surfaces with color blocks and 1px borders far more than with shadow. Glass panels use <code class="font-mono">backdrop-filter: blur(12px)</code> over #F0EDE766.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPONENTS ================= -->
+<section id="components" class="bg-brand-white">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">05 &middot; Components</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">Component <em>gallery</em></h2>
+    <p class="mt-4 max-w-3xl text-brand-deep-blue">Rendered live with the Tailwind tokens above. Components that exist on the site follow its CSS. Components the marketing site does not have (badges, table, alert, KPI tile) are marked proposed.</p>
+
+    <!-- NAV -->
+    <h3 class="mt-12 font-display text-h5 text-brand-deep-blue">Navigation bar <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted</span></h3>
+    <p class="mt-1 text-body-sm text-ui-muted">Three skins exist: dark blue (homepage), white (leadership page) and cream. Links are 0.875rem, weight 500. Dropdown panels match the bar color.</p>
+    <div class="mt-4 space-y-4">
+      <div class="flex min-h-[4.5rem] items-center justify-between gap-4 bg-brand-dark-blue px-[5%] shadow-brand-nav">
+        <span class="flex items-center">
+          <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14c077439ecfe_Asset%20Logo%20-%20light.svg" alt="Asset Living" class="h-7 w-auto" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="hidden font-display text-h6 text-brand-cream">Asset Living</span>
+        </span>
+        <div class="hidden items-center text-body-sm font-medium text-brand-white md:flex">
+          <a href="#components" class="px-3 py-2 transition-colors duration-brand ease-brand hover:text-brand-grey-blue">About &#9662;</a>
+          <a href="#components" class="px-3 py-2 transition-colors duration-brand ease-brand hover:text-brand-grey-blue">Property Management &#9662;</a>
+          <a href="#components" class="px-3 py-2 transition-colors duration-brand ease-brand hover:text-brand-grey-blue">Resources &#9662;</a>
+          <a href="#components" class="px-3 py-2 transition-colors duration-brand ease-brand hover:text-brand-grey-blue">Careers &#9662;</a>
+          <a href="#components" class="group relative ml-4 overflow-hidden border border-brand-cream px-5 py-2 text-body-md font-normal text-brand-cream transition-colors duration-brand ease-brand hover:text-brand-dark-blue">
+            <span class="absolute inset-0 translate-y-full bg-brand-cream transition-transform duration-brand ease-brand group-hover:translate-y-0"></span><span class="relative">Contact Us</span></a>
+        </div>
+        <span class="text-brand-cream md:hidden" aria-hidden="true">&#9776;</span>
+      </div>
+      <div class="flex min-h-[4.5rem] items-center justify-between gap-4 border border-brand-sand bg-brand-white px-[5%] shadow-brand-nav">
+        <span class="flex items-center">
+          <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14cf25139ecf6_Asset%20Logo.svg" alt="Asset Living" class="h-7 w-auto" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="hidden font-display text-h6 text-brand-deep-blue">Asset Living</span>
+        </span>
+        <div class="hidden items-center text-body-sm font-medium text-brand-deep-blue md:flex">
+          <div class="group relative">
+            <a href="#components" class="block px-3 py-2">About &#9662;</a>
+            <div class="invisible absolute left-0 top-full z-10 w-44 bg-brand-white p-2 opacity-0 shadow-brand-card transition-opacity group-hover:visible group-hover:opacity-100">
+              <a href="#components" class="block px-4 py-2 hover:bg-brand-cream">Overview</a><a href="#components" class="block px-4 py-2 hover:bg-brand-cream">Culture</a><a href="#components" class="block px-4 py-2 hover:bg-brand-cream">Leadership</a><a href="#components" class="block px-4 py-2 hover:bg-brand-cream">Impact</a>
+            </div>
+          </div>
+          <a href="#components" class="px-3 py-2">Property Management &#9662;</a>
+          <a href="#components" class="px-3 py-2">Resources &#9662;</a>
+          <a href="#components" class="px-3 py-2">Careers &#9662;</a>
+          <a href="#components" class="group relative ml-4 overflow-hidden border border-brand-deep-blue bg-brand-cream px-5 py-2 text-body-md font-normal text-brand-deep-blue transition-colors duration-brand ease-brand hover:text-brand-cream">
+            <span class="absolute inset-0 translate-y-full bg-brand-deep-blue transition-transform duration-brand ease-brand group-hover:translate-y-0"></span><span class="relative">Contact Us</span></a>
+        </div>
+        <span class="text-brand-deep-blue md:hidden" aria-hidden="true">&#9776;</span>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Buttons <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted, hover motion inferred</span></h3>
+    <p class="mt-1 max-w-3xl text-body-sm text-ui-muted">Geometry from CSS: 1px border, radius 0, padding 0.75rem 1.5rem (small 0.5rem 1.25rem, large 1rem 2rem), text 1rem weight 400, no uppercase. Each button holds an absolutely positioned fill layer that slides on hover. The colors of both layers are in the CSS; the slide direction and the text color flip are driven by Webflow interaction scripts and are <b>inferred</b> here. Hover each live button to see it.</p>
+
+    <div class="mt-5 grid gap-6 lg:grid-cols-2">
+      <div class="bg-brand-dark-blue p-6 sm:p-8">
+        <p class="mb-5 text-tiny uppercase tracking-[1px] text-brand-grey-blue">On dark blue</p>
+        <div class="flex flex-wrap items-center gap-6">
+          <a href="#components" class="group relative overflow-hidden border border-brand-cream px-6 py-3 text-brand-cream transition-colors duration-brand ease-brand hover:text-brand-dark-blue">
+            <span class="absolute inset-0 translate-y-full bg-brand-cream transition-transform duration-brand ease-brand group-hover:translate-y-0"></span><span class="relative">Learn More</span></a>
+          <a href="#components" class="border border-brand-heading-cream bg-brand-heading-cream px-6 py-3 text-brand-ink">Alternate</a>
+          <a href="#components" class="inline-flex items-center gap-4 py-1 leading-none text-brand-cream underline-offset-4 hover:underline">Text link <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="mt-6 grid grid-cols-2 gap-4 text-tiny text-brand-grey-blue sm:grid-cols-4">
+          <div><span class="inline-block border border-brand-cream px-4 py-2 text-body-sm text-brand-cream">Default</span><p class="mt-2">Rest</p></div>
+          <div><span class="inline-block border border-brand-cream bg-brand-cream px-4 py-2 text-body-sm text-brand-dark-blue">Default</span><p class="mt-2">Hover</p></div>
+          <div><span class="inline-block border border-brand-cream px-4 py-2 text-body-sm text-brand-cream outline outline-2 outline-offset-2 outline-brand-asset-blue">Default</span><p class="mt-2">Focus <span class="text-brand-green">(proposed)</span></p></div>
+          <div><span class="inline-block border border-brand-cream/40 px-4 py-2 text-body-sm text-brand-cream/40">Default</span><p class="mt-2">Disabled <span class="text-brand-green">(proposed)</span></p></div>
+        </div>
+      </div>
+      <div class="border border-brand-sand bg-brand-cream p-6 sm:p-8">
+        <p class="mb-5 text-tiny uppercase tracking-[1px] text-ui-muted">On cream or white</p>
+        <div class="flex flex-wrap items-center gap-6">
+          <a href="#components" class="group relative overflow-hidden border border-brand-deep-blue bg-brand-cream px-6 py-3 text-brand-deep-blue transition-colors duration-brand ease-brand hover:text-brand-cream">
+            <span class="absolute inset-0 translate-y-full bg-brand-deep-blue transition-transform duration-brand ease-brand group-hover:translate-y-0"></span><span class="relative">Contact Us</span></a>
+          <a href="#components" class="border border-brand-deep-blue px-6 py-3 text-brand-deep-blue">Secondary</a>
+          <button type="button" class="border border-brand-dark-blue bg-brand-cream px-6 py-3 text-brand-dark-blue transition-colors duration-brand ease-brand hover:bg-brand-dark-blue hover:text-brand-cream">Submit</button>
+          <a href="#components" class="py-1 leading-none text-brand-deep-blue underline underline-offset-4">Text link</a>
+        </div>
+        <div class="mt-6 grid grid-cols-2 gap-4 text-tiny text-ui-muted sm:grid-cols-4">
+          <div><span class="inline-block border border-brand-deep-blue bg-brand-cream px-4 py-2 text-body-sm text-brand-deep-blue">Default</span><p class="mt-2">Rest</p></div>
+          <div><span class="inline-block border border-brand-deep-blue bg-brand-deep-blue px-4 py-2 text-body-sm text-brand-cream">Default</span><p class="mt-2">Hover</p></div>
+          <div><span class="inline-block border border-brand-deep-blue bg-brand-cream px-4 py-2 text-body-sm text-brand-deep-blue outline outline-2 outline-offset-2 outline-brand-asset-blue">Default</span><p class="mt-2">Focus <span class="text-ui-success">(proposed)</span></p></div>
+          <div><span class="inline-block border border-brand-deep-blue/30 px-4 py-2 text-body-sm text-brand-deep-blue/40">Default</span><p class="mt-2">Disabled <span class="text-ui-success">(proposed)</span></p></div>
+        </div>
+      </div>
+    </div>
+    <p class="mt-3 text-body-sm text-ui-muted">Variants in the CSS: <code class="font-mono">.button</code> (primary), <code class="font-mono">.is-secondary</code> (transparent with 1px border), <code class="font-mono">.is-secondary.is-alternate</code> (deep-blue outline), <code class="font-mono">.is-alternate</code> (#F0EDE7 fill, #1B2226 text), <code class="font-mono">.is-form-submit</code> (cream with dark-blue border, inverts on hover), <code class="font-mono">.is-link</code> (underlined, no border), <code class="font-mono">.is-small</code>, <code class="font-mono">.is-large</code>, <code class="font-mono">.is-icon</code> (1rem gap).</p>
+
+    <!-- PERSON CARDS -->
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Leadership card and tab rail <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted</span></h3>
+    <p class="mt-1 max-w-3xl text-body-sm text-ui-muted">Square 1:1 portrait (object-fit cover, object-position 50% 32%), no radius, no border, no shadow. Name 1.25rem / 600 and title 1rem / 400, centered, white on dark blue. A LinkedIn icon in Asset Blue sits 0.5rem from the bottom-right of the photo. Three columns, 2rem column gap, 4rem row gap. Portraits below are placeholders with invented names.</p>
+    <div class="mt-5 grid gap-8 bg-brand-dark-blue p-6 sm:p-10 lg:grid-cols-[1fr_2fr] lg:gap-20">
+      <div>
+        <div class="flex flex-col items-start gap-4 bg-brand-deep-blue p-8 font-display text-h5 text-brand-white lg:sticky lg:top-28">
+          <span class="border-b border-brand-cream/80 text-brand-cream/80">Corporate</span>
+          <span>Operations</span><span>Principals</span><span>Relationship Management</span>
+        </div>
+        <p class="mt-3 text-tiny text-brand-grey-blue">Tab rail: deep-blue panel, 2rem padding, 1.5rem serif labels. Active tab is cream at 80% with a 1px underline. Another variant uses orange.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-3">
+        <a href="#components" class="flex flex-col text-brand-white">
+          <div class="relative mb-4 w-full overflow-hidden pt-[100%]">
+            <div class="absolute inset-0 flex items-center justify-center bg-brand-grey-blue font-display text-h2 text-brand-deep-blue">JA</div>
+            <span class="absolute bottom-2 right-2 flex h-6 w-6 items-center justify-center text-brand-asset-blue" aria-hidden="true"><svg viewBox="0 0 32 32" class="h-6 w-6" fill="currentColor"><path d="M26.2 4H5.8A1.8 1.8 0 0 0 4 5.7v20.5A1.8 1.8 0 0 0 5.8 28h20.4a1.8 1.8 0 0 0 1.8-1.7V5.7A1.8 1.8 0 0 0 26.2 4zM11.1 24.4H7.6V13h3.5zm-1.7-13a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm15 13h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.900v5.700h-3.500V13h3.300v1.500a3.700 3.700 0 0 1 3.300-1.800c3.500 0 4.200 2.300 4.200 5.400z"/></svg></span>
+          </div>
+          <p class="text-center text-body-lg font-semibold">Jordan Avery</p><p class="text-center text-body-md">Chief Financial Officer</p>
+        </a>
+        <a href="#components" class="flex flex-col text-brand-white">
+          <div class="relative mb-4 w-full overflow-hidden pt-[100%]"><div class="absolute inset-0 flex items-center justify-center bg-brand-sky font-display text-h2 text-brand-deep-blue">MR</div></div>
+          <p class="text-center text-body-lg font-semibold">Morgan Reyes</p><p class="text-center text-body-md">Chief Operating Officer</p>
+        </a>
+        <a href="#components" class="flex flex-col text-brand-white">
+          <div class="relative mb-4 w-full overflow-hidden pt-[100%]"><div class="absolute inset-0 flex items-center justify-center bg-brand-ocean font-display text-h2 text-brand-cream">SP</div></div>
+          <p class="text-center text-body-lg font-semibold">Sam Patel</p><p class="text-center text-body-md">Division President</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTENT CARDS + STATS -->
+    <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Content card <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted</span></h3>
+        <p class="mt-1 text-body-sm text-ui-muted">Blog and insight cards: square, 1.5rem padding, a 1px or 2px border in the surface color, and a background swap on hover (white to cream, or cream to #E0DAD1) over 0.35s. Tag chip: 1px deep-blue border, 4px radius, 0.875rem / 600.</p>
+        <div class="mt-4 bg-brand-cream p-6">
+          <a href="#components" class="block border-2 border-brand-white bg-brand-white p-6 transition-colors duration-300 hover:border-brand-cream-hover hover:bg-brand-cream-hover">
+            <span class="inline-block rounded-brand-tag border border-brand-deep-blue px-2 py-1 text-body-sm font-semibold text-brand-deep-blue">Insights</span>
+            <p class="mt-4 font-display text-h5 text-brand-deep-blue">Asset Living Awarded Management of College Vue and College Vue on University</p>
+            <p class="mt-3 text-body-md text-brand-deep-blue">A short summary line sits here in the body sans at 1rem.</p>
+            <span class="mt-5 inline-flex items-center gap-4 text-brand-deep-blue">Read more <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a href="#components" class="mt-4 flex items-center justify-between gap-6 border border-brand-dark-blue px-6 py-8 transition-colors duration-brand ease-brand hover:bg-brand-sand">
+            <span class="font-display text-h6 text-brand-dark-blue">Featured row with a 1px dark-blue border</span><span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Stat block <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted layout</span></h3>
+        <p class="mt-1 text-body-sm text-ui-muted">The homepage states its figures as centered serif sentences in deep blue (h3) across a 3-column grid with 4rem gaps. A dark version separates items with 1px dividers in #F0EDE766, 10rem tall.</p>
+        <div class="mt-4 grid gap-8 border border-brand-sand bg-brand-white p-8 text-center sm:grid-cols-3">
+          <p class="font-display text-h5 text-brand-deep-blue">Over <span class="block text-h2">455K</span> units under management.</p>
+          <p class="font-display text-h5 text-brand-deep-blue">Over <span class="block text-h2">12K</span> employees coast-to-coast.</p>
+          <p class="font-display text-h5 text-brand-deep-blue">Clients in over <span class="block text-h2">40</span> states.</p>
+        </div>
+        <div class="mt-4 flex items-center justify-around gap-4 bg-brand-dark-blue p-8 text-center text-brand-cream">
+          <div><p class="font-display text-h3">40+</p><p class="text-body-sm text-brand-grey-blue">years of experience</p></div>
+          <span class="h-20 w-px" style="background:#f0ede766"></span>
+          <div><p class="font-display text-h3">800+</p><p class="text-body-sm text-brand-grey-blue">clients</p></div>
+          <span class="h-20 w-px" style="background:#f0ede766"></span>
+          <div><p class="font-display text-h3">1986</p><p class="text-body-sm text-brand-grey-blue">founded</p></div>
+        </div>
+        <p class="mt-2 text-tiny text-ui-muted">Figures are quoted from the homepage. Isolating the number at a larger size is this guide's adaptation.</p>
+      </div>
+    </div>
+
+    <!-- FORMS -->
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Form inputs <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted</span></h3>
+    <p class="mt-1 max-w-3xl text-body-sm text-ui-muted">Underline-only fields: transparent background, 1px deep-blue bottom border, min-height 2.75rem, padding 0.5rem 1rem, dark-blue placeholder, visible labels hidden (placeholder acts as label). Text area min-height 8rem. Checkbox 0.875rem with 0.125rem radius. On dark, the underline is #F4F4F4 with a grey-blue placeholder and 3.5rem height.</p>
+    <div class="mt-5 grid gap-6 lg:grid-cols-2">
+      <form class="space-y-4 border border-brand-sand bg-brand-cream p-6 sm:p-8" onsubmit="return false">
+        <input type="text" aria-label="Name" placeholder="Enter your Name" class="block min-h-[2.75rem] w-full border-0 border-b border-brand-deep-blue bg-transparent px-4 py-2 text-brand-deep-blue placeholder-brand-dark-blue focus:border-brand-asset-blue focus:outline-none">
+        <input type="email" aria-label="Email" placeholder="Enter your Email" class="block min-h-[2.75rem] w-full border-0 border-b border-brand-deep-blue bg-transparent px-4 py-2 text-brand-deep-blue placeholder-brand-dark-blue focus:border-brand-asset-blue focus:outline-none">
+        <select aria-label="Property type" class="block min-h-[2.75rem] w-full border-0 border-b border-brand-deep-blue bg-transparent px-3 py-2 text-brand-dark-blue focus:border-brand-asset-blue focus:outline-none"><option>Property type</option><option>Multifamily</option><option>Student</option><option>Affordable</option><option>Build-to-Rent</option></select>
+        <textarea aria-label="Message" placeholder="How can we help?" class="block min-h-[8rem] w-full border-0 border-b border-brand-deep-blue bg-transparent px-4 pb-2 pt-3 text-brand-deep-blue placeholder-brand-dark-blue focus:border-brand-asset-blue focus:outline-none"></textarea>
+        <label class="flex items-center gap-2 text-body-sm font-medium text-brand-deep-blue"><input type="checkbox" class="h-3.5 w-3.5 rounded-brand-xs accent-brand-deep-blue"> Yes, send me updates</label>
+        <button type="submit" class="mt-4 border border-brand-dark-blue bg-brand-cream px-6 py-3 text-brand-dark-blue transition-colors duration-brand ease-brand hover:bg-brand-dark-blue hover:text-brand-cream">Submit</button>
+        <div class="border border-brand-deep-blue p-5 text-brand-deep-blue">Success message: 1px deep-blue border, transparent fill, 1.25rem padding.</div>
+      </form>
+      <form class="space-y-8 bg-brand-dark-blue p-6 sm:p-8" onsubmit="return false">
+        <input type="text" aria-label="Name" placeholder="Enter your Name" class="block h-14 w-full border-0 border-b border-brand-light-gray bg-transparent px-3 text-body text-brand-cream placeholder-brand-grey-blue focus:border-brand-asset-blue focus:outline-none">
+        <input type="text" aria-label="Phone" placeholder="Phone Number" class="block h-14 w-full border-0 border-b border-brand-light-gray bg-transparent px-3 text-body text-brand-cream placeholder-brand-grey-blue focus:border-brand-asset-blue focus:outline-none">
+        <textarea aria-label="Message" placeholder="How can we help?" class="block h-32 w-full border-0 border-b border-brand-light-gray bg-transparent px-3 pt-3 text-body text-brand-cream placeholder-brand-grey-blue focus:border-brand-asset-blue focus:outline-none"></textarea>
+        <p class="text-tiny text-brand-grey-blue">Focus color: the site falls back to the Webflow default (#3898EC). Asset Blue is used here instead, which is <span class="text-brand-green">proposed</span>.</p>
+      </form>
+    </div>
+
+    <!-- PROPOSED: badges, table, alert -->
+    <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Badges and status pills <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-success">proposed</span></h3>
+        <p class="mt-1 text-body-sm text-ui-muted">Derived from the blog tag chip (1px border, 4px radius, 0.875rem / 600). Status variants add a tinted fill and a leading dot so state is not carried by color alone.</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <span class="rounded-brand-tag border border-brand-deep-blue px-2 py-1 text-body-sm font-semibold text-brand-deep-blue">Multifamily</span>
+          <span class="rounded-brand-tag bg-brand-deep-blue px-2 py-1 text-body-sm font-semibold text-brand-white">Student</span>
+          <span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-success-bg px-2 py-1 text-body-sm font-semibold text-ui-success"><span class="h-1.5 w-1.5 rounded-full bg-ui-success"></span>Leased</span>
+          <span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-warning-bg px-2 py-1 text-body-sm font-semibold text-ui-warning"><span class="h-1.5 w-1.5 rounded-full bg-ui-warning"></span>Notice given</span>
+          <span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-danger-bg px-2 py-1 text-body-sm font-semibold text-ui-danger"><span class="h-1.5 w-1.5 rounded-full bg-ui-danger"></span>Past due</span>
+          <span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-info-bg px-2 py-1 text-body-sm font-semibold text-ui-info"><span class="h-1.5 w-1.5 rounded-full bg-ui-info"></span>In review</span>
+          <span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-brand-cream-hover px-2 py-1 text-body-sm font-semibold text-ui-muted"><span class="h-1.5 w-1.5 rounded-full bg-ui-muted"></span>Vacant</span>
+        </div>
+
+        <h3 class="mt-10 font-display text-h5 text-brand-deep-blue">Alerts <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-success">proposed</span></h3>
+        <p class="mt-1 text-body-sm text-ui-muted">Square, with the blockquote's 0.25rem left rule.</p>
+        <div class="mt-4 space-y-3 text-body-sm">
+          <div class="border-l-4 border-ui-info bg-ui-info-bg p-4 text-brand-dark-blue"><b class="text-ui-info">Heads up.</b> Three renewals are due for review this week.</div>
+          <div class="border-l-4 border-ui-success bg-ui-success-bg p-4 text-brand-dark-blue"><b class="text-ui-success">Saved.</b> The owner report was sent.</div>
+          <div class="border-l-4 border-ui-warning bg-ui-warning-bg p-4 text-brand-dark-blue"><b class="text-ui-warning">Check this.</b> Occupancy at one community fell below target.</div>
+          <div class="border-l-4 border-ui-danger bg-ui-danger-bg p-4 text-brand-dark-blue"><b class="text-ui-danger">Couldn't sync.</b> Reconnect the accounting system and try again.</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-display text-h5 text-brand-deep-blue">Table <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-success">proposed</span></h3>
+        <p class="mt-1 text-body-sm text-ui-muted">No data table exists on the marketing site. This follows its rules: square frame, hairline dividers, deep-blue text, cream row hover, small uppercase column heads. Sample data.</p>
+        <div class="mt-4 overflow-x-auto border border-brand-sand">
+          <table class="tnum w-full min-w-[460px] text-left text-body-sm text-brand-deep-blue">
+            <thead class="border-b border-brand-deep-blue bg-brand-cream text-tiny uppercase tracking-[1px]">
+              <tr><th class="px-4 py-3 font-semibold">Community</th><th class="px-4 py-3 font-semibold">Type</th><th class="px-4 py-3 text-right font-semibold">Units</th><th class="px-4 py-3 text-right font-semibold">Occupancy</th><th class="px-4 py-3 font-semibold">Status</th></tr>
+            </thead>
+            <tbody class="divide-y divide-brand-sand bg-brand-white">
+              <tr class="hover:bg-brand-cream"><td class="px-4 py-3 font-semibold">Sample Commons</td><td class="px-4 py-3">Multifamily</td><td class="px-4 py-3 text-right">312</td><td class="px-4 py-3 text-right">96.2%</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-success-bg px-2 py-0.5 font-semibold text-ui-success"><span class="h-1.5 w-1.5 rounded-full bg-ui-success"></span>On target</span></td></tr>
+              <tr class="hover:bg-brand-cream"><td class="px-4 py-3 font-semibold">Example Lofts</td><td class="px-4 py-3">Student</td><td class="px-4 py-3 text-right">540</td><td class="px-4 py-3 text-right">91.4%</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-warning-bg px-2 py-0.5 font-semibold text-ui-warning"><span class="h-1.5 w-1.5 rounded-full bg-ui-warning"></span>Watch</span></td></tr>
+              <tr class="hover:bg-brand-cream"><td class="px-4 py-3 font-semibold">Demo Station</td><td class="px-4 py-3">Affordable</td><td class="px-4 py-3 text-right">188</td><td class="px-4 py-3 text-right">98.9%</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-success-bg px-2 py-0.5 font-semibold text-ui-success"><span class="h-1.5 w-1.5 rounded-full bg-ui-success"></span>On target</span></td></tr>
+              <tr class="hover:bg-brand-cream"><td class="px-4 py-3 font-semibold">Placeholder Villas</td><td class="px-4 py-3">Build-to-Rent</td><td class="px-4 py-3 text-right">124</td><td class="px-4 py-3 text-right">84.7%</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-danger-bg px-2 py-0.5 font-semibold text-ui-danger"><span class="h-1.5 w-1.5 rounded-full bg-ui-danger"></span>Below</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="mt-10 font-display text-h5 text-brand-deep-blue">KPI tile <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-success">proposed</span></h3>
+        <div class="mt-4 grid grid-cols-2 gap-4">
+          <div class="border border-brand-sand bg-brand-white p-5"><p class="text-tiny uppercase tracking-[1px] text-ui-muted">Occupancy</p><p class="tnum mt-2 font-display text-h3 text-brand-deep-blue">94.8%</p><p class="mt-1 text-body-sm font-semibold text-ui-success">&#9650; 1.2 pts vs last month</p></div>
+          <div class="bg-brand-deep-blue p-5"><p class="text-tiny uppercase tracking-[1px] text-brand-grey-blue">Open work orders</p><p class="tnum mt-2 font-display text-h3 text-brand-cream">137</p><p class="mt-1 text-body-sm font-semibold text-brand-orange">&#9660; 9 overdue</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Footer <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted</span></h3>
+    <p class="mt-1 text-body-sm text-ui-muted">Light footer on cream or white with a 1px deep-blue top border. Column heads are serif h6 in deep blue. Links 0.875rem / 400 in deep blue, darkening to dark blue. Divider #154571B8. Legal links #5C7D99. Credit text deep blue at 80%.</p>
+    <div class="mt-4 border-t border-brand-deep-blue bg-brand-cream p-6 sm:p-10">
+      <div class="grid gap-8 md:grid-cols-[1fr_.75fr]">
+        <div>
+          <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14cf25139ecf6_Asset%20Logo.svg" alt="Asset Living" class="h-9 w-auto" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="hidden font-display text-h5 text-brand-deep-blue">Asset Living</span>
+          <p class="mt-6 max-w-sm font-display text-h5 text-brand-deep-blue">A proven partner in fostering <em>thriving communities</em>.</p>
+          <p class="mt-1 text-tiny text-ui-muted">Second half of this line is a placeholder; the site animates the ending words.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="flex flex-col"><p class="mb-4 font-display text-h6 text-brand-deep-blue">Company</p><a href="#components" class="py-2 text-body-sm text-brand-deep-blue transition-colors duration-300 hover:text-brand-dark-blue">About Us</a><a href="#components" class="py-2 text-body-sm text-brand-deep-blue transition-colors duration-300 hover:text-brand-dark-blue">Leadership</a><a href="#components" class="py-2 text-body-sm text-brand-deep-blue transition-colors duration-300 hover:text-brand-dark-blue">Culture</a></div>
+          <div class="flex flex-col"><p class="mb-4 font-display text-h6 text-brand-deep-blue">Property Management</p><a href="#components" class="py-2 text-body-sm text-brand-deep-blue transition-colors duration-300 hover:text-brand-dark-blue">Multifamily</a><a href="#components" class="py-2 text-body-sm text-brand-deep-blue transition-colors duration-300 hover:text-brand-dark-blue">Student</a><a href="#components" class="py-2 text-body-sm text-brand-deep-blue transition-colors duration-300 hover:text-brand-dark-blue">Affordable</a></div>
+        </div>
+      </div>
+      <div class="my-8 h-px w-full" style="background:#154571b8"></div>
+      <div class="flex flex-wrap items-center justify-between gap-4 text-body-sm" style="color:#154571cc">
+        <p>&copy; 2026 Asset Living. All rights reserved.</p>
+        <p class="flex gap-6 text-brand-slate"><span>Privacy Policy</span><span>Disclosures</span></p>
+      </div>
+    </div>
+
+    <h3 class="mt-14 font-display text-h5 text-brand-deep-blue">Icons and imagery <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-muted">extracted</span></h3>
+    <ul class="mt-3 grid gap-3 text-body-sm text-brand-deep-blue md:grid-cols-2">
+      <li class="border border-brand-sand p-4"><b>Icons:</b> inline SVG from the Iconify sets Carbon and BoxIcons, colored with <code class="font-mono">currentColor</code>. Sizes 1rem, 1.5rem, 2rem, 3rem. Thin, outlined, unfussy. For the prototype, Carbon icons or any 1.5px-stroke outline set will fit (set choice inferred).</li>
+      <li class="border border-brand-sand p-4"><b>Photography:</b> full-bleed, object-fit cover, never rounded. Dark-blue 50% scrim under text. Portraits are square crops biased toward the top third.</li>
+      <li class="border border-brand-sand p-4"><b>Quote marks:</b> oversized glyphs in Asset Green, 4rem wide, hanging 4rem into the left margin.</li>
+      <li class="border border-brand-sand p-4"><b>Section rhythm:</b> whole sections swap between dark blue, deep blue, cream and white, and the navbar skin changes with them.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PRODUCT UI ================= -->
+<section id="product" class="bg-brand-cream">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">06 &middot; Applying the brand to a product UI</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">From marketing site to <em>dashboard</em></h2>
+    <div class="mt-4 max-w-3xl border-l-4 border-ui-success bg-ui-success-bg p-4 text-body-sm text-brand-dark-blue">
+      <b class="text-ui-success">Everything in this section is proposed.</b> The public site has no application UI. These patterns extend the extracted palette, type and geometry to dense screens. All data shown is invented sample data.
+    </div>
+
+    <div class="mt-8 grid gap-6 text-body-sm text-brand-deep-blue md:grid-cols-3">
+      <div class="border border-brand-sand bg-brand-white p-5"><p class="font-display text-h6">Surfaces</p><p class="mt-2">Dark Blue sidebar, Cream canvas, White cards with a 1px Sand border. No radius. No shadow on cards; use shadow-brand-card only for menus and popovers.</p></div>
+      <div class="border border-brand-sand bg-brand-white p-5"><p class="font-display text-h6">Type</p><p class="mt-2">Serif for page titles and big numbers only. Everything else in the sans at 14 to 16px. Keep the italic emphasis word for page titles and empty states.</p></div>
+      <div class="border border-brand-sand bg-brand-white p-5"><p class="font-display text-h6">Color jobs</p><p class="mt-2">Deep Blue is the action color. Orange marks the current selection, as it does on the site's tabs. Green, red and amber are reserved for status.</p></div>
+    </div>
+
+    <!-- App mock -->
+    <div class="mt-8 overflow-hidden border border-brand-deep-blue bg-brand-cream lg:grid lg:grid-cols-[15rem_1fr]">
+      <aside class="flex flex-col bg-brand-dark-blue p-5 text-brand-cream">
+        <div class="flex items-center">
+          <img src="https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/645bfa68c2a14c077439ecfe_Asset%20Logo%20-%20light.svg" alt="Asset Living" class="h-7 w-auto" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')">
+          <span class="hidden font-display text-h6">Asset Living</span>
+        </div>
+        <nav class="mt-6 flex gap-1 overflow-x-auto text-body-sm font-medium lg:mt-8 lg:flex-col">
+          <a href="#product" class="whitespace-nowrap border-b-2 border-brand-orange px-3 py-2 text-brand-orange lg:border-b-0 lg:border-l-2" style="background:#15457066">Portfolio</a>
+          <a href="#product" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2 transition-colors hover:text-brand-grey-blue lg:border-b-0 lg:border-l-2">Communities</a>
+          <a href="#product" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2 transition-colors hover:text-brand-grey-blue lg:border-b-0 lg:border-l-2">Leasing</a>
+          <a href="#product" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2 transition-colors hover:text-brand-grey-blue lg:border-b-0 lg:border-l-2">Maintenance</a>
+          <a href="#product" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2 transition-colors hover:text-brand-grey-blue lg:border-b-0 lg:border-l-2">Financials</a>
+          <a href="#product" class="whitespace-nowrap border-b-2 border-transparent px-3 py-2 transition-colors hover:text-brand-grey-blue lg:border-b-0 lg:border-l-2">Reports</a>
+        </nav>
+        <div class="mt-auto hidden border-t pt-4 text-tiny text-brand-grey-blue lg:block" style="border-color:#154571b8">Signed in as<br><span class="text-body-sm text-brand-cream">Regional Manager</span></div>
+      </aside>
+
+      <div class="min-w-0 p-4 sm:p-8">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-tiny uppercase tracking-[1px] text-ui-muted">Portfolio &middot; November 2026</p>
+            <h3 class="mt-1 font-display text-h4 text-brand-deep-blue">Your communities, at a <em>glance</em></h3>
+          </div>
+          <div class="flex gap-3">
+            <button type="button" class="border border-brand-deep-blue px-4 py-2 text-body-sm text-brand-deep-blue transition-colors duration-brand ease-brand hover:bg-brand-cream-hover">Export</button>
+            <button type="button" class="border border-brand-deep-blue bg-brand-deep-blue px-4 py-2 text-body-sm text-brand-white transition-colors duration-brand ease-brand hover:border-brand-dark-blue hover:bg-brand-dark-blue">Add community</button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-4 xl:grid-cols-4">
+          <div class="border border-brand-sand bg-brand-white p-4"><p class="text-tiny uppercase tracking-[1px] text-ui-muted">Units managed</p><p class="tnum mt-2 font-display text-h4 text-brand-deep-blue">4,812</p><p class="mt-1 text-tiny font-semibold text-ui-success">&#9650; 124 this quarter</p></div>
+          <div class="border border-brand-sand bg-brand-white p-4"><p class="text-tiny uppercase tracking-[1px] text-ui-muted">Occupancy</p><p class="tnum mt-2 font-display text-h4 text-brand-deep-blue">94.8%</p><p class="mt-1 text-tiny font-semibold text-ui-success">&#9650; 1.2 pts</p></div>
+          <div class="border border-brand-sand bg-brand-white p-4"><p class="text-tiny uppercase tracking-[1px] text-ui-muted">Delinquency</p><p class="tnum mt-2 font-display text-h4 text-brand-deep-blue">2.1%</p><p class="mt-1 text-tiny font-semibold text-ui-danger">&#9650; 0.3 pts</p></div>
+          <div class="border border-brand-sand bg-brand-white p-4"><p class="text-tiny uppercase tracking-[1px] text-ui-muted">Open work orders</p><p class="tnum mt-2 font-display text-h4 text-brand-deep-blue">137</p><p class="mt-1 text-tiny font-semibold text-ui-warning">9 overdue</p></div>
+        </div>
+
+        <div class="mt-4 grid gap-4 xl:grid-cols-[1.4fr_1fr]">
+          <div class="border border-brand-sand bg-brand-white p-5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <p class="font-display text-h6 text-brand-deep-blue">Units by property type</p>
+              <p class="text-tiny text-ui-muted">Sample data</p>
+            </div>
+            <!-- Simple horizontal bars, one hue per category in the chart sequence -->
+            <div class="tnum mt-5 space-y-3 text-body-sm text-brand-deep-blue">
+              <div class="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-3"><span>Multifamily</span><span class="h-5 bg-brand-cream"><span class="block h-5 bg-brand-deep-blue" style="width:88%"></span></span><span class="text-right">2,104</span></div>
+              <div class="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-3"><span>Student</span><span class="h-5 bg-brand-cream"><span class="block h-5 bg-brand-asset-blue" style="width:56%"></span></span><span class="text-right">1,340</span></div>
+              <div class="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-3"><span>Affordable</span><span class="h-5 bg-brand-cream"><span class="block h-5 bg-brand-orange" style="width:31%"></span></span><span class="text-right">742</span></div>
+              <div class="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-3"><span>Active Adult</span><span class="h-5 bg-brand-cream"><span class="block h-5 bg-brand-ocean" style="width:16%"></span></span><span class="text-right">388</span></div>
+              <div class="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-3"><span>Build-to-Rent</span><span class="h-5 bg-brand-cream"><span class="block h-5 bg-brand-green" style="width:10%"></span></span><span class="text-right">238</span></div>
+            </div>
+          </div>
+          <div class="border border-brand-sand bg-brand-white p-5">
+            <p class="font-display text-h6 text-brand-deep-blue">Chart color sequence</p>
+            <p class="mt-1 text-tiny text-ui-muted">All six are extracted brand colors; only the order is proposed. Assign in this order and always label series directly, since orange and green are light.</p>
+            <ol class="mt-4 space-y-2 font-mono text-tiny text-brand-deep-blue">
+              <li class="flex items-center gap-3"><span class="h-5 w-10 bg-brand-deep-blue"></span>1 &middot; #154571 deep-blue</li>
+              <li class="flex items-center gap-3"><span class="h-5 w-10 bg-brand-asset-blue"></span>2 &middot; #3EA0C7 asset-blue</li>
+              <li class="flex items-center gap-3"><span class="h-5 w-10 bg-brand-orange"></span>3 &middot; #F6A800 orange</li>
+              <li class="flex items-center gap-3"><span class="h-5 w-10 bg-brand-ocean"></span>4 &middot; #6A99A6 ocean</li>
+              <li class="flex items-center gap-3"><span class="h-5 w-10 bg-brand-green"></span>5 &middot; #93D500 green</li>
+              <li class="flex items-center gap-3"><span class="h-5 w-10 bg-brand-grey-blue"></span>6 &middot; #A5BAC9 grey-blue</li>
+            </ol>
+            <p class="mt-3 text-tiny text-ui-muted">Gridlines: Sand #E0DAD1. Axis text: UI Muted. Sequential ramps: Sky #C5E9F4 to Asset Blue to Deep Blue to Dark Blue.</p>
+          </div>
+        </div>
+
+        <div class="mt-4 border border-brand-sand bg-brand-white">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-brand-sand px-4 py-3">
+            <div class="flex gap-5 text-body-sm font-medium">
+              <span class="border-b border-brand-orange pb-1 text-brand-deep-blue">All <span class="tnum text-ui-muted">24</span></span>
+              <span class="pb-1 text-ui-muted">Needs attention <span class="tnum">3</span></span>
+              <span class="pb-1 text-ui-muted">Lease-up <span class="tnum">2</span></span>
+            </div>
+            <input type="search" aria-label="Search communities" placeholder="Search communities" class="w-full border-0 border-b border-brand-deep-blue bg-transparent px-2 py-1 text-body-sm text-brand-deep-blue placeholder-ui-muted focus:border-brand-asset-blue focus:outline-none sm:w-56">
+          </div>
+          <div class="overflow-x-auto">
+            <table class="tnum w-full min-w-[640px] text-left text-body-sm text-brand-deep-blue">
+              <thead class="border-b border-brand-sand bg-brand-cream text-tiny uppercase tracking-[1px] text-ui-muted">
+                <tr><th class="px-4 py-2.5 font-semibold">Community</th><th class="px-4 py-2.5 font-semibold">Market</th><th class="px-4 py-2.5 text-right font-semibold">Units</th><th class="px-4 py-2.5 text-right font-semibold">Occupancy</th><th class="px-4 py-2.5 text-right font-semibold">Avg rent</th><th class="px-4 py-2.5 font-semibold">Status</th></tr>
+              </thead>
+              <tbody class="divide-y divide-brand-sand/70">
+                <tr class="hover:bg-brand-cream"><td class="px-4 py-3"><p class="font-semibold">Sample Commons</p><p class="text-tiny text-ui-muted">Multifamily</p></td><td class="px-4 py-3">Houston, TX</td><td class="px-4 py-3 text-right">312</td><td class="px-4 py-3 text-right">96.2%</td><td class="px-4 py-3 text-right">$1,482</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-success-bg px-2 py-0.5 font-semibold text-ui-success"><span class="h-1.5 w-1.5 rounded-full bg-ui-success"></span>On target</span></td></tr>
+                <tr class="hover:bg-brand-cream"><td class="px-4 py-3"><p class="font-semibold">Example Lofts</p><p class="text-tiny text-ui-muted">Student</p></td><td class="px-4 py-3">Atlanta, GA</td><td class="px-4 py-3 text-right">540</td><td class="px-4 py-3 text-right">91.4%</td><td class="px-4 py-3 text-right">$905</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-warning-bg px-2 py-0.5 font-semibold text-ui-warning"><span class="h-1.5 w-1.5 rounded-full bg-ui-warning"></span>Watch</span></td></tr>
+                <tr class="hover:bg-brand-cream"><td class="px-4 py-3"><p class="font-semibold">Placeholder Villas</p><p class="text-tiny text-ui-muted">Build-to-Rent</p></td><td class="px-4 py-3">Bentonville, AR</td><td class="px-4 py-3 text-right">124</td><td class="px-4 py-3 text-right">84.7%</td><td class="px-4 py-3 text-right">$2,110</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-danger-bg px-2 py-0.5 font-semibold text-ui-danger"><span class="h-1.5 w-1.5 rounded-full bg-ui-danger"></span>Below</span></td></tr>
+                <tr class="hover:bg-brand-cream"><td class="px-4 py-3"><p class="font-semibold">Demo Station</p><p class="text-tiny text-ui-muted">Affordable</p></td><td class="px-4 py-3">Houston, TX</td><td class="px-4 py-3 text-right">188</td><td class="px-4 py-3 text-right">98.9%</td><td class="px-4 py-3 text-right">$1,020</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1.5 rounded-brand-tag bg-ui-info-bg px-2 py-0.5 font-semibold text-ui-info"><span class="h-1.5 w-1.5 rounded-full bg-ui-info"></span>In review</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-12 font-display text-h5 text-brand-deep-blue">Semantic colors <span class="ml-2 align-middle font-sans text-tiny uppercase tracking-[1px] text-ui-success">proposed</span></h3>
+    <p class="mt-2 max-w-3xl text-body-sm text-ui-muted">The brand green, orange and blue are too light for text on white, so each status gets a darkened text shade in the same hue family and a pale tint. Danger red has no source on the site and is chosen to sit beside the navy without clashing. Ratios are text on its tint / text on white.</p>
+    <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="border border-brand-sand bg-brand-white"><div class="flex h-16"><span class="flex-1 bg-ui-success"></span><span class="flex-1 bg-ui-success-bg"></span></div><div class="space-y-0.5 p-3 text-tiny"><p class="text-body-sm font-semibold text-ui-success">Success</p><p class="font-mono">#3D6B00 &middot; rgb(61,107,0)</p><p class="font-mono">#EEF8D4 &middot; rgb(238,248,212)</p><p class="font-mono text-ui-muted">ui-success / ui-success-bg</p><p class="text-ui-muted">5.76 / 6.36 &middot; AA pass</p></div></div>
+      <div class="border border-brand-sand bg-brand-white"><div class="flex h-16"><span class="flex-1 bg-ui-warning"></span><span class="flex-1 bg-ui-warning-bg"></span></div><div class="space-y-0.5 p-3 text-tiny"><p class="text-body-sm font-semibold text-ui-warning">Warning</p><p class="font-mono">#8A5A00 &middot; rgb(138,90,0)</p><p class="font-mono">#FEF3D6 &middot; rgb(254,243,214)</p><p class="font-mono text-ui-muted">ui-warning / ui-warning-bg</p><p class="text-ui-muted">5.36 / 5.93 &middot; AA pass</p></div></div>
+      <div class="border border-brand-sand bg-brand-white"><div class="flex h-16"><span class="flex-1 bg-ui-danger"></span><span class="flex-1 bg-ui-danger-bg"></span></div><div class="space-y-0.5 p-3 text-tiny"><p class="text-body-sm font-semibold text-ui-danger">Danger</p><p class="font-mono">#B3372B &middot; rgb(179,55,43)</p><p class="font-mono">#FBE9E7 &middot; rgb(251,233,231)</p><p class="font-mono text-ui-muted">ui-danger / ui-danger-bg</p><p class="text-ui-muted">5.12 / 6.00 &middot; AA pass</p></div></div>
+      <div class="border border-brand-sand bg-brand-white"><div class="flex h-16"><span class="flex-1 bg-ui-info"></span><span class="flex-1 bg-ui-info-bg"></span></div><div class="space-y-0.5 p-3 text-tiny"><p class="text-body-sm font-semibold text-ui-info">Info</p><p class="font-mono">#1F6E90 &middot; rgb(31,110,144)</p><p class="font-mono">#E6F3F8 &middot; rgb(230,243,248)</p><p class="font-mono text-ui-muted">ui-info / ui-info-bg</p><p class="text-ui-muted">5.02 / 5.69 &middot; AA pass</p></div></div>
+      <div class="border border-brand-sand bg-brand-white"><div class="flex h-16"><span class="flex-1 bg-ui-muted"></span><span class="flex-1 bg-brand-cream"></span></div><div class="space-y-0.5 p-3 text-tiny"><p class="text-body-sm font-semibold text-ui-muted">Muted text</p><p class="font-mono">#4A6A85 &middot; rgb(74,106,133)</p><p class="text-ui-muted">Darker sibling of the site's #5C7D99, which misses AA on white.</p><p class="font-mono text-ui-muted">ui-muted</p><p class="text-ui-muted">5.27 on cream / 5.69 &middot; AA pass</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOICE ================= -->
+<section id="voice" class="bg-brand-deep-blue text-brand-cream">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-grey-blue">07 &middot; Voice and tone</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-heading-cream md:text-h3">Proud, people-first, <em>plain-spoken</em></h2>
+    <div class="mt-10 grid gap-10 lg:grid-cols-2">
+      <div>
+        <p class="text-tiny uppercase tracking-[1px] text-brand-grey-blue">Quoted from the site</p>
+        <ul class="mt-4 space-y-5 font-display text-h5 text-brand-heading-cream">
+          <li>“Driving <em>success</em> for our partners and the places people call home.” <span class="block font-sans text-tiny text-brand-grey-blue">Homepage headline</span></li>
+          <li>“Proudly challenging the limits of what property management can accomplish.” <span class="block font-sans text-tiny text-brand-grey-blue">Homepage</span></li>
+          <li>“Leadership isn’t reflected in your title — it’s a <em>mentality</em> that’s ingrained into who we are and how we serve.” <span class="block font-sans text-tiny text-brand-grey-blue">Leadership page</span></li>
+          <li>“Be a part of something bigger.” <span class="block font-sans text-tiny text-brand-grey-blue">Careers call to action</span></li>
+          <li>“Everyone deserves a place to call home.” <span class="block font-sans text-tiny text-brand-grey-blue">Mission statement, About overview</span></li>
+          <li>“We’re here to <em>support</em>.” <span class="block font-sans text-tiny text-brand-grey-blue">Contact page</span></li>
+        </ul>
+        <p class="mt-6 text-body-sm text-brand-grey-blue">Recurring words: partner, community, team, proven, trusted, coast-to-coast, nationwide, forward-thinking, tailored. The handwritten “Team Asset” is the internal rallying name.</p>
+      </div>
+      <div>
+        <p class="text-tiny uppercase tracking-[1px] text-brand-grey-blue">Traits <span class="text-brand-orange">(inferred from the copy)</span></p>
+        <dl class="mt-4 space-y-5 text-body-md">
+          <div><dt class="font-semibold text-brand-heading-cream">First person plural</dt><dd class="text-brand-cream/90">“We” and “our” speak to “you” and “your”. Clients are “partners”, staff are “team members”, properties are “communities”.</dd></div>
+          <div><dt class="font-semibold text-brand-heading-cream">Confident, backed by numbers</dt><dd class="text-brand-cream/90">Claims arrive with a figure: 455K units, 12K employees, 800+ clients, 40+ years, 40 states.</dd></div>
+          <div><dt class="font-semibold text-brand-heading-cream">Warm over corporate</dt><dd class="text-brand-cream/90">“The places people call home”, “heartfelt gratitude”. Sentences are short and declarative.</dd></div>
+          <div><dt class="font-semibold text-brand-heading-cream">Headlines in sentence or title case</dt><dd class="text-brand-cream/90">Never all caps. One italic word carries the emphasis. Buttons are two or three words: “Learn More”, “Contact Us”, “Explore Career Opportunities”.</dd></div>
+        </dl>
+        <div class="mt-8 border border-brand-cream/30 p-5">
+          <p class="text-tiny uppercase tracking-[1px] text-brand-grey-blue">In product UI <span class="text-brand-green">(proposed)</span></p>
+          <ul class="mt-3 space-y-2 text-body-sm text-brand-cream/90">
+            <li><b class="text-brand-heading-cream">Page title:</b> “Your communities, at a <em>glance</em>”</li>
+            <li><b class="text-brand-heading-cream">Empty state:</b> “No open work orders. Your teams are caught up.”</li>
+            <li><b class="text-brand-heading-cream">Error:</b> “We couldn’t load this report. Try again, or contact your Asset Living partner.”</li>
+            <li><b class="text-brand-heading-cream">Actions:</b> name the thing. “Add community”, “Send owner report”. Not “Submit” or “OK”.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CODE ================= -->
+<section id="code" class="bg-brand-white">
+  <div class="mx-auto max-w-container-lg px-4 py-20 sm:px-10">
+    <p class="text-body-sm uppercase tracking-overline text-brand-slate">08 &middot; Copy and paste</p>
+    <h2 class="mt-3 font-display text-h4 text-brand-deep-blue md:text-h3">Tokens for the <em>prototype</em></h2>
+    <p class="mt-4 max-w-3xl text-brand-deep-blue">The Tailwind block is the same config this page runs on. Paste it after the Play CDN script. The CSS block mirrors the site's own custom property names.</p>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      <div class="min-w-0">
+        <div class="flex items-center justify-between bg-brand-deep-blue px-4 py-2 text-body-sm text-brand-cream"><span>Head: fonts and Tailwind config</span><button type="button" data-copy="code-tw" class="border border-brand-cream px-3 py-1 text-tiny hover:bg-brand-cream hover:text-brand-deep-blue">Copy</button></div>
+<pre id="code-tw" class="max-h-[40rem] overflow-auto bg-brand-dark-blue p-4 font-mono text-tiny leading-relaxed text-brand-cream">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&amp;family=Figtree:ital,wght@0,300..800;1,300..800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&amp;display=swap" rel="stylesheet"&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;script&gt;
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          // Extracted from assetliving.com
+          'dark-blue':   '#0c1827',
+          'deep-blue':   '#154571',
+          'asset-blue':  '#3ea0c7',
+          'grey-blue':   '#a5bac9',
+          'cream':       '#f8f6f3',
+          'cream-hover': '#efebe6',
+          'white':       '#ffffff',
+          'light-gray':  '#f4f4f4',
+          'orange':      '#f6a800',
+          'green':       '#93d500',
+          'heading-cream': '#f1ede7',
+          'sand':        '#e0dad1',
+          'stone':       '#d7d5cd',
+          'slate':       '#5c7d99',
+          'ocean':       '#6a99a6',
+          'sky':         '#c5e9f4',
+          'ink':         '#1b2226',
+        },
+        // PROPOSED product-UI extensions (not from the site)
+        ui: {
+          'muted':   '#4a6a85',
+          'success': '#3d6b00', 'success-bg': '#eef8d4',
+          'warning': '#8a5a00', 'warning-bg': '#fef3d6',
+          'danger':  '#b3372b', 'danger-bg':  '#fbe9e7',
+          'info':    '#1f6e90', 'info-bg':    '#e6f3f8',
+        },
+      },
+      fontFamily: {
+        // Licensed site font first, free substitute second
+        display: ['"freight-display-pro"', '"Source Serif 4"', 'Georgia', 'serif'],
+        sans:    ['Gilroy', 'Figtree', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+        script:  ['Gustav', 'Caveat', 'cursive'],
+      },
+      fontSize: {
+        'hero-xl': ['6rem',     { lineHeight: '1.1' }],
+        'hero':    ['4.5rem',   { lineHeight: '1.1' }],
+        'h1':      ['3.5rem',   { lineHeight: '1.1' }],
+        'h2':      ['3rem',     { lineHeight: '1.1' }],
+        'h3':      ['2.5rem',   { lineHeight: '1.1' }],
+        'h4':      ['2rem',     { lineHeight: '1.1' }],
+        'h5':      ['1.5rem',   { lineHeight: '1.1' }],
+        'h6':      ['1.25rem',  { lineHeight: '1.3' }],
+        'body-lg': ['1.25rem',  { lineHeight: '1.5' }],
+        'body':    ['1.125rem', { lineHeight: '1.5' }],
+        'body-md': ['1rem',     { lineHeight: '1.5' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }],
+        'tiny':    ['0.75rem',  { lineHeight: '1.5' }],
+      },
+      letterSpacing: { overline: '2px', category: '0.5px' },
+      maxWidth: {
+        'container-sm': '48rem',
+        'container-md': '64rem',
+        'container-lg': '80rem',
+      },
+      borderRadius: {
+        'brand': '0px',
+        'brand-xs': '0.125rem',
+        'brand-tag': '4px',
+        'brand-panel': '2rem',
+      },
+      boxShadow: {
+        'brand-nav':  '0 2px 5px #1545710a',
+        'brand-card': '0 2px 5px #00000014',
+        'brand-pop':  '0 4px 13px #0003',
+      },
+      transitionTimingFunction: { brand: 'cubic-bezier(.645,.045,.355,1)' },
+      transitionDuration: { brand: '400ms' },
+    },
+  },
+};
+&lt;/script&gt;</pre>
+      </div>
+      <div class="min-w-0">
+        <div class="flex items-center justify-between bg-brand-deep-blue px-4 py-2 text-body-sm text-brand-cream"><span>CSS custom properties and base styles</span><button type="button" data-copy="code-css" class="border border-brand-cream px-3 py-1 text-tiny hover:bg-brand-cream hover:text-brand-deep-blue">Copy</button></div>
+<pre id="code-css" class="max-h-[40rem] overflow-auto bg-brand-dark-blue p-4 font-mono text-tiny leading-relaxed text-brand-cream">:root {
+  /* Extracted: names match the site's :root block */
+  --dark-blue: #0c1827;
+  --deep-blue: #154571;
+  --asset-blue: #3ea0c7;
+  --asset-grey-blue: #a5bac9;
+  --cream: #f8f6f3;
+  --cream-hover: #efebe6;
+  --white-smoke: #ffffff;
+  --light-gray: #f4f4f4;
+  --asset-orange: #f6a800;
+  --asset-green: #93d500;
+  --glass-overlay-light: #f0ede766;
+  --glass-overlay-dark: #1b222666;
+
+  /* Extracted: literal values from individual rules */
+  --heading-cream: #f1ede7;
+  --sand: #e0dad1;
+  --slate: #5c7d99;
+  --ocean: #6a99a6;
+  --sky: #c5e9f4;
+  --divider: #154571b8;
+  --dropdown-hover-dark: #15457066;
+  --photo-scrim: #0c182780;
+
+  /* Extracted: type */
+  --font-display: "freight-display-pro", "Source Serif 4", Georgia, serif;
+  --font-sans: Gilroy, Figtree, system-ui, sans-serif;
+  --font-script: Gustav, Caveat, cursive;
+  --text-h1: 3.5rem;  --text-h2: 3rem;   --text-h3: 2.5rem;
+  --text-h4: 2rem;    --text-h5: 1.5rem; --text-h6: 1.25rem;
+  --text-body: 1.125rem; --leading-heading: 1.1; --leading-body: 1.5;
+
+  /* Extracted: layout, shape, motion */
+  --container-lg: 80rem; --container-md: 64rem; --container-sm: 48rem;
+  --gutter: 2.5rem; --nav-height: 4.5rem;
+  --section-sm: 3rem; --section-md: 5rem; --section-lg: 10rem;
+  --radius: 0; --radius-tag: 4px;
+  --shadow-nav: 0 2px 5px #1545710a;
+  --shadow-card: 0 2px 5px #00000014;
+  --ease-brand: cubic-bezier(.645,.045,.355,1);
+  --duration-brand: .4s;
+
+  /* PROPOSED: product-UI extensions, not from the site */
+  --ui-muted: #4a6a85;
+  --ui-success: #3d6b00; --ui-success-bg: #eef8d4;
+  --ui-warning: #8a5a00; --ui-warning-bg: #fef3d6;
+  --ui-danger:  #b3372b; --ui-danger-bg:  #fbe9e7;
+  --ui-info:    #1f6e90; --ui-info-bg:    #e6f3f8;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;            /* site marketing body is 1.125rem */
+  line-height: var(--leading-body);
+  color: var(--dark-blue);
+  background: var(--cream);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--leading-heading);
+  color: var(--deep-blue);
+  margin: 0;
+}
+h1 em, h2 em, h3 em { font-style: italic; } /* the italic emphasis word */
+
+.bg-diamond {  /* extracted verbatim from .background-color-diamond */
+  background-color: #0c1827;
+  background-image:
+    radial-gradient(circle at 60%, #06244a52 15%, #0c1827f5 54%),
+    linear-gradient(138deg, #0c182799 55%, #06244ae0 66%, #0c182799 76%),
+    linear-gradient(191deg, #0c182799 42%, #06244ae0 49%, #0c182799 62%);
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= SOURCES ================= -->
+<footer class="border-t border-brand-deep-blue bg-brand-cream">
+  <div class="mx-auto max-w-container-lg px-4 py-14 sm:px-10">
+    <h2 class="font-display text-h5 text-brand-deep-blue">Sources and method</h2>
+    <p class="mt-2 text-body-sm text-brand-deep-blue">Fetched on <b>2026-11-21</b> with a plain HTTP client. The HTML and CSS were read as text; no site scripts were run. Hex values were counted and matched against the downloaded stylesheet.</p>
+    <div class="mt-6 grid gap-8 text-body-sm text-brand-deep-blue lg:grid-cols-3">
+      <div>
+        <p class="font-semibold">Pages</p>
+        <ul class="mt-2 space-y-1 break-all font-mono text-tiny text-ui-muted">
+          <li>https://www.assetliving.com/about/leadership</li>
+          <li>https://www.assetliving.com/</li>
+          <li>https://www.assetliving.com/about/overview</li>
+          <li>https://www.assetliving.com/property-management/services</li>
+          <li>https://www.assetliving.com/contact</li>
+        </ul>
+        <p class="mt-4 font-semibold">Stylesheets and assets</p>
+        <ul class="mt-2 space-y-1 break-all font-mono text-tiny text-ui-muted">
+          <li>https://cdn.prod.website-files.com/645bfa68c2a14cfafc39ece5/css/asset-3-v3.shared.5af02593d.min.css (main Webflow stylesheet, all tokens)</li>
+          <li>https://use.typekit.net/xdb8bdk.css (Adobe Fonts kit: Freight families, Larken, Ivy Journal)</li>
+          <li>.../645bfa68c2a14cf25139ecf6_Asset%20Logo.svg</li>
+          <li>.../645bfa68c2a14c077439ecfe_Asset%20Logo%20-%20light.svg</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold">Extracted directly</p>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>All colors in the core palette, supporting neutrals, interaction states and gradients</li>
+          <li>Logo URLs and the fill colors inside the SVGs</li>
+          <li>Font family names, sources and weights; the heading and body scale; line-heights; overline letter-spacing; responsive heading sizes</li>
+          <li>Container widths, gutters, section padding, spacing scale, breakpoints, grid templates</li>
+          <li>Radii, shadows, transition timing</li>
+          <li>Navbar, button geometry and variant colors, leadership card and tab rail, blog cards, tag chip, form inputs, footer</li>
+          <li>All quoted copy and the statistics</li>
+          <li>Contrast ratios (computed from extracted values)</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold">Inferred or proposed</p>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li><b>Inferred:</b> button hover slide direction and text color flip (set by Webflow interaction scripts, not CSS)</li>
+          <li><b>Inferred:</b> substitute fonts Source Serif 4, Figtree and Caveat for the licensed Freight Display Pro, Gilroy and Gustav</li>
+          <li><b>Inferred:</b> voice traits, icon set recommendation, logo usage guidance (the site publishes no rules)</li>
+          <li><b>Proposed:</b> the whole "ui" color namespace (muted, success, warning, danger, info and their tints)</li>
+          <li><b>Proposed:</b> focus and disabled button states, badges and status pills, alerts, data table, KPI tiles, sidebar, chart color order, product-UI copy examples</li>
+          <li><b>Adapted:</b> Sand #E0DAD1 as a border (a hover fill on the site); the overline at 0.875rem (1.25rem on the site); enlarged stat numerals; person-card placeholders with invented names</li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-8 text-tiny text-ui-muted">This is an unofficial reference built from public pages for prototyping. Asset Living's name and logo belong to Asset Living. This file needs an internet connection for the Tailwind Play CDN, Google Fonts and the remote logo images.</p>
+  </div>
+</footer>
+
+<script>
+  // Copy buttons for the code blocks
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+      var done = function () { var t = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = t; }, 1500); };
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done); }
+      else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) {} document.body.removeChild(ta); }
+    });
+  });
+</script>
+</body>
+</html>
